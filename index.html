@@ -10,18 +10,35 @@
     
 </head>
 <body>
-    <header class="header">
-        <div class="logo"><img src="img/arated-logo.jpg" alt="A Rated Logo"></div>
-        <div class="tagline">Accelerating Sustainability & Net Zero</div>
-        <div class="right-header-items">
-            <button class="nav-toggle" onclick="toggleNav()">☰</button>
-            <nav class="nav-menu">
-                <a href="https://arated.com/homes/">Homes</a>
-                <a href="https://arated.com/investments/">Investments</a>
-                <a href="tel:=442081234411"><i class="fa-solid fa-phone"></i> 020 8123 4411</a>
-            </nav>
-        </div>
-    </header>
+	<header class="header">
+	<!--    <div class="logo-container"> -->
+			<div class="logo"><img src="img/arated-logo.jpg" alt="A Rated Logo"></div>
+			<div class="tagline">Accelerating Sustainability & Net Zero</div>
+	 <!--     </div>  -->
+		<div class="right-header-items">
+			<button class="nav-toggle" onclick="toggleNav()">☰</button>
+			<nav class="nav-menu">
+				<div class="dropdown">
+					<a href="https://arated.com/homes/" class="dropdown-toggle">Homes <i class="fa-solid fa-caret-down"></i></a>
+					<div class="dropdown-menu">
+						<a href="https://arated.com/homes/consulting/">Advisory / Consulting</a>
+						<a href="https://arated.com/homes/consulting/">Building A Rated Homes</a>
+						<a href="https://arated.com/homes/consulting/">Domestic Energy Assessments</a>
+						<a href="https://arated.com/homes/consulting/">Solar PV, Battery, Heatpumps</a>
+					</div>
+				</div>
+					<div class="dropdown">
+					<a href="https://arated.com/investments/" class="dropdown-toggle">Investments <i class="fa-solid fa-caret-down"></i></a>
+					<div class="dropdown-menu">
+						<a href="https://arated.com/angel-vc-investments/">Angel / VC Investments</a>
+						<a href="https://arated.com/invest-into-a-rated-homes/">Invest into A Rated Homes</a>
+						<a href="https://arated.com/renewable-energy-investments/">Renewable Energy Assessments</a>
+					</div>
+				</div>
+				<a href="tel:=442081234411"><i class="fa-solid fa-phone"></i> 020 8123 4411</a>
+			</nav>
+		</div>
+	</header>
 
     <!-- Full-width banner -->
 <div class="banner">
@@ -163,9 +180,22 @@
     </footer>
 
     <script>
-        function toggleNav() {
-            document.querySelector('.nav-menu').classList.toggle('active');
-        }
+		function toggleNav() {
+			const navMenu = document.querySelector('.nav-menu');
+			navMenu.classList.toggle('active');
+		}
+		
+		document.addEventListener('DOMContentLoaded', (event) => {
+			const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+			
+			dropdownToggles.forEach(toggle => {
+				toggle.addEventListener('click', (e) => {
+					e.preventDefault();
+					const dropdown = toggle.closest('.dropdown');
+					dropdown.classList.toggle('active');
+				});
+			});
+		});
     </script>
 </body>
 </html>
