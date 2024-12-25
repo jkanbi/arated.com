@@ -95,24 +95,6 @@
 			display: block;
 		}
 
-@media (max-width: 768px) {
-    .dropdown-menu {
-        position: static;
-        display: none;
-        background-color: transparent;
-        box-shadow: none;
-    }
-
-    .dropdown-menu a {
-        padding: 10px 20px;
-    }
-
-    .dropdown.active .dropdown-menu {
-        display: block;
-    }
-}
-
-
         .content {
             padding: 20px;
             transition: margin-top 0.3s ease;
