@@ -175,6 +175,7 @@
         .footer-column {
             flex-basis: calc(25% - 20px); /* 4 columns with some margin */
             margin-bottom: 20px;
+            color: var(--footer-link-color);
         }
 
         .footer-column h3 {
