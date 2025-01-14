@@ -44,6 +44,10 @@
             border-bottom: 1px solid var(--border-color);
         }
 
+		.tagline{
+			margin-left:20px;
+		}
+
         .nav-toggle {
             display: none;
             cursor: pointer;
