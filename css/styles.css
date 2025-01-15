@@ -247,6 +247,11 @@
          
 
         @media screen and (max-width: 768px) {
+        
+       		.tagline{
+				margin-left:20px;
+			}
+
             .nav-toggle {
                 display: block;
             }
