@@ -33,6 +33,10 @@
             margin: 0;
             padding: 0;
             transition: background-color 0.3s, color 0.3s;
+            text-align: center; /* Center everything by default */
+            min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
+			display: flex;
+			flex-direction: column; /* Stack content vertically */
         }
 
         .header {
@@ -132,6 +136,109 @@
 		  padding: 20px;
 		}
 		
+		.centered-input {
+		  display: flex;
+		  justify-content: center; /* Centers horizontally */
+		  align-items: center; /* Centers vertically, if needed */
+		  margin-bottom: 20px; /* Add some space below the input */
+		}
+		
+		/* Search Container */
+		
+		.search-container {
+			margin-top: 300px;
+			/* Increased top spacing */
+			margin-bottom: 300px;
+			/* Increased bottom spacing */
+		}
+		
+		/* Guidance Text */
+		
+		.search-guidance {
+			font-size: 1.1em;
+			/* Slightly larger */
+			margin-bottom: 10px;
+			/* Space between text and input */
+			color: #555;
+			/* A softer color than black */
+		}
+		
+		/* Search Input Wrapper */
+		
+		.search-input-wrapper {
+			display: flex;
+			/* Arrange input and buttons in a row */
+			align-items: center;
+			/* Vertically align the items */
+			justify-content: center;
+			/* horizontally align items */
+		}
+		
+		/* Search Input */
+		
+		.search-input {
+			width: 70%;
+			/* Adjust width as needed */
+			max-width: 600px;
+			/* Maximum width for larger screens */
+			padding: 12px 20px;
+			/* Larger padding for better appearance */
+			font-size: 16px;
+			/* Larger font size */
+			border: 1px solid #ccc;
+			border-radius: 24px;
+			/* Rounded corners like Google */
+			outline: none;
+			/* Remove default focus outline */
+			margin-right: 10px;
+			/* Space between the input and buttons */
+		}
+		
+		.search-input:focus {
+			border-color: #4285f4;
+			/* Google's blue color on focus */
+			box-shadow: 0 0 5px rgba(66, 133, 244, 0.5);
+			/* Add a subtle shadow on focus */
+		}
+		
+		/* Search Buttons Container - Inline with input */
+		.search-buttons-inline {
+			display: flex; /* Keep existing buttons in a row */
+		}
+		
+		/* Search Button */
+		
+		.search-button {
+			background-color: #f2f2f2;
+			/* Light gray background */
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			padding: 10px 16px;
+			margin: 0 8px;
+			/* Space between buttons */
+			font-size: 14px;
+			color: #555;
+			cursor: pointer;
+		}
+		
+		.search-button:hover {
+			border-color: #999;
+		}
+		
+		.search-button:focus {
+			outline: none;
+			border-color: #4285f4;
+			/* Google's blue color on focus */
+			box-shadow: 0 0 3px rgba(66, 133, 244, 0.5);
+		}
+		
+		/* Search Buttons Container - Below input */
+		.search-buttons-below {
+			margin-top: 20px; /* Add space above the lower buttons */
+			display: flex;
+			justify-content: center; /* Center the buttons horizontally */
+		}
+						
 		.row {
 		  display: flex;
 		  flex-wrap: wrap;
@@ -296,6 +403,12 @@
 		
 			.dropdown.active .dropdown-menu {
 				display: block;
+			}
+				
+			/* Search Container */
+			.search-container {
+			  margin-top: 150px; /* Adjust top spacing as needed */
+			  margin-bottom: 150px; /* Spacing after the input */
 			}
             
 		   .card {
