@@ -10,47 +10,53 @@
     
 </head>
 <body>
-	<header class="header">
-	<!--    <div class="logo-container"> -->
-			<div class="logo"><img src="img/arated-logo.jpg" alt="A Rated Logo" width="44" height="44">
-			</div>
-			<div class="tagline">Accelerating Sustainability & Net Zero - (In development)</div>
-	 <!--     </div>  -->
-		<div class="right-header-items">
-			<button class="nav-toggle" onclick="toggleNav()">☰</button>
-			<nav class="nav-menu">
-				<div class="dropdown">
-					<a href="http://ratings.arated.com/" class="dropdown-toggle" style="display:none">Ratings <i class="fa-solid fa-caret-down"></i></a>
-					<div class="dropdown-menu" id="ratings-menu">
-						<a href="http://ratings.arated.com/">Ratings</a>
-						<a href="http://ratings.arated.com/homes/">Homes</a>
-						<a href="http://ratings.arated.com/stocks/">Stocks</a>
-						<a href="http://ratings.arated.com/business/">Business</a>
-						<a href="http://ratings.arated.com/products/">Products</a>
-					</div>
-				</div>
-				<div class="dropdown">
-					<a href="https://wp.arated.com/homes/" class="dropdown-toggle">Homes <i class="fa-solid fa-caret-down"></i></a>
-					<div class="dropdown-menu" id="homes-menu">
-						<a href="https://wp.arated.com/homes/consulting/">Advising & Consulting</a>
-						<a href="https://wp.arated.com/homes/consulting/">Building Homes</a>
-						<a href="https://wp.arated.com/homes/consulting/">Energy Assessments</a>
-						<a href="https://wp.arated.com/homes/consulting/">Renewable Energy</a>
-					</div>
-				</div>
-					<div class="dropdown">
-					<a href="https://wp.arated.com/investments/" class="dropdown-toggle">Investments <i class="fa-solid fa-caret-down"></i></a>
-					<div class="dropdown-menu" id="investments-menu">
-						<a href="https://wp.arated.com/angel-vc-investments/">Angel Investments</a>
-						<a href="https://wp.arated.com/renewable-energy-investments/">CleanTech Investments</a>
-						<a href="https://wp.arated.com/invest-into-a-rated-homes/">REIT Investments</a>
-						<a href="https://wp.arated.com/stocks-and-shares/">Stocks and Shares</a>
-					</div>
-				</div>
-				<!-- <a href="tel:=442081234411"><i class="fa-solid fa-phone"></i> 020 8123 4411</a> -->
-			</nav>
-		</div>
-	</header>
+
+<header class="header">
+    <div class="logo">
+        <img src="img/arated-logo.jpg" alt="A Rated Logo" width="44" height="44">
+    </div>
+    <div class="tagline">Accelerating Sustainability & Net Zero - (In development)</div>
+    <div class="right-header-items">
+        <!-- 9-dots menu -->
+        <div class="dots-menu" onclick="toggleMenu()">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <!-- Grid Menu (Hidden by default) -->
+        <nav id="nav-menu" class="nav-menu hidden">
+            <div class="grid-menu">
+                <!--
+                <a href="http://ratings.arated.com/" class="grid-item">
+                    <svg class="grid-icon" viewBox="0 0 24 24">
+                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                    </svg>
+                    <span>Ratings</span>
+                </a>
+                -->
+                <a href="https://wp.arated.com/homes/" class="grid-item">
+                    <svg class="grid-icon" viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    <span>Homes</span>
+                </a>
+                <a href="https://wp.arated.com/investments/" class="grid-item">
+                    <svg class="grid-icon" viewBox="0 0 24 24">
+                        <path d="M3 3v18h18V3H3zm16 16H5V5h14v14zM11 7h2v2h-2V7zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2z"/>
+                    </svg>
+                    <span>Investments</span>
+                </a>
+                <!-- Add more grid items as needed -->
+            </div>
+        </nav>
+    </div>
+</header>
 
     <!-- Full-width banner -->
 <!-- <div class="banner">
@@ -268,6 +274,12 @@
 				});
 			});
 		});
+		
+		function toggleMenu() {
+    		const navMenu = document.getElementById('nav-menu');
+    		navMenu.classList.toggle('hidden');
+		}
+		
     </script>
 </body>
 </html>
