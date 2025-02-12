@@ -94,6 +94,7 @@
 		  background-color: #fff;
 		  border-radius: 8px;
 		  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+		  outline: 2px solid #D3D3D3; /* Light Grey */
 		}
 		
 		.grid-item {
@@ -101,7 +102,7 @@
 		  flex-direction: column;
 		  align-items: center;
 		  text-decoration: none;
-		  color: #5f6368;
+		  color: #5f6368;  /* Default text color */
 		  padding: 16px;
 		  border-radius: 8px;
 		  transition: background-color 0.3s;
@@ -116,6 +117,7 @@
 		  height: 24px;
 		  margin-bottom: 8px;
 		  fill: currentColor;
+		  fill: #006400; /* Dark Green */
 		}
 		
 		.grid-item span {
