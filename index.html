@@ -13,8 +13,8 @@
 
 <header class="header">
     <div class="logo">
-        <img src="img/arated-logo-light.jpg" alt="A Rated Logo" width="44" height="44" class="light-mode-logo">
-        <img src="img/arated-logo-dark.jpg" alt="A Rated Logo" width="44" height="44" class="dark-mode-logo">
+        <img src="img/arated-logo-light.jpg" alt="A Rated Logo" width="44" height="44" class="light-mode-logo js-theme-logo">
+        <img src="img/arated-logo-dark.jpg" alt="A Rated Logo" width="44" height="44" class="dark-mode-logo js-theme-logo">
     </div>
     <div class="tagline">Accelerating Sustainability & Net Zero - (In development)</div>
     <div class="right-header-items">
@@ -247,6 +247,13 @@
 		function toggleMenu() {
     		const navMenu = document.getElementById('nav-menu');
     		navMenu.classList.toggle('hidden');
+		}
+		
+		// Only run this if you want to override the CSS approach
+		if (false) { // Change to true to enable JS approach
+			const logos = document.querySelectorAll('.js-theme-logo');
+			logos.forEach(logo => logo.classList.remove('light-mode-logo', 'dark-mode-logo'));
+			// Then implement the JS approach as shown above
 		}
 		
     </script>
