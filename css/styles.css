@@ -1,4 +1,5 @@
-        :root {
+		@media (prefers-color-scheme: light) {
+		:root {
             --bg-color: #ffffff;
             --text-color: #333333;
             --card-bg: #f0f0f0;
@@ -9,7 +10,16 @@
             --footercols-color:#4b4f58;
             --footer-link-color:#ffffff;
             --copyright-color: #212121;
+			
         }
+			/* Hide dark mode logo by default */
+			.dark-mode-logo {
+				display: none;
+			}
+			.light-mode-logo {
+				display: block;
+			}
+		}
 
         @media (prefers-color-scheme: dark) {
             :root {
@@ -24,6 +34,12 @@
                 --footer-link-color:#ffffff;
                 --copyright-color: #000000;
             }
+			.light-mode-logo {
+				display: none;
+			}
+			.dark-mode-logo {
+				display: block;
+			}
         }
 
         body {
@@ -46,11 +62,11 @@
 			justify-content: space-between;
 			padding: 10px 20px;
 		}
-		
+		/* 
 		.logo img {
 			display: block;
-		}
-		
+		} */
+
 		.tagline {
 			font-size: 14px;
 			color: #555;
