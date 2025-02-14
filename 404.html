@@ -7,20 +7,55 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
-    <header class="header">
-        <div class="logo"><img src="img/arated-logo.jpg" alt="A Rated Logo" width="44" height="44"></div>
-        <div class="tagline">Accelerating Sustainability & Net Zero</div>
-        <div class="right-header-items">
-            <button class="nav-toggle" onclick="toggleNav()">☰</button>
-            <nav class="nav-menu">
-                <a href="#home">Home</a>
-                <a href="#home">Services</a>
-                <a href="#home">Investments</a>
-                <a href="#about">About</a>
-                <a href="tel:=442081234411"><i class="fa-solid fa-phone"></i> 020 8123 4411</a>
-            </nav>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | ARated.com</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/all.min.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">
+        <img src="img/arated-logo-light.jpg" alt="A Rated Logo" width="44" height="44" class="light-mode-logo js-theme-logo">
+        <img src="img/arated-logo-dark.jpg" alt="A Rated Logo" width="44" height="44" class="dark-mode-logo js-theme-logo">
+    </div>
+    <div class="tagline">Accelerating Sustainability & Net Zero</div>
+    <div class="right-header-items">
+        <!-- 9-dots menu -->
+        <div class="dots-menu" onclick="toggleMenu()">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
         </div>
-    </header>
+        <!-- Grid Menu (Hidden by default) -->
+        <nav id="nav-menu" class="nav-menu hidden">
+            <div class="grid-menu">
+                <a href="https://wp.arated.com/homes/" class="grid-item">
+                    <svg class="grid-icon" viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    <span>Homes</span>
+                </a>
+                <a href="https://wp.arated.com/investments/" class="grid-item">
+                    <svg class="grid-icon" viewBox="0 0 24 24">
+                        <path d="M3 3v18h18V3H3zm16 16H5V5h14v14zM11 7h2v2h-2V7zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2z"/>
+                    </svg>
+                    <span>Investments</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+</header>
 <div class="container">
     <div class="content" style="text-align:center;">
         <h1>404</h1>
@@ -34,32 +69,56 @@
         <div class="footer-column">
             <h3>About Us</h3>
             <ul>
-                <li><a href="#">Our Team</a></li>
-                <li><a href="#">Our Mission</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="https://wp.arated.com/about-us/">Company</a></li>
+                <li><a href="https://wp.arated.com/carbon-emissions/">Carbon Emissions</a></li>
+                <li><a href="https://wp.arated.com/mission/">Our Mission</a></li>
+                <li><a href="https://wp.arated.com/privacy-policy/">Privacy Policy</a></li>
+                <li><a href="https://wp.arated.com/affilate-activity-disclosure/">Affilate Activity</a></li>
+                <li><a href="https://wp.arated.com/affilate-activity-disclosure/">Disclosure</a></li>
             </ul>
         </div>
         <div class="footer-column">
-            <h3>Services</h3>
+            <h3>Contact Us</h3>
             <ul>
-                <li><a href="#">Advisory / Consulting</a></li>
-                <li><a href="#">Domestic Energy Assessments</a></li>
-                <li><a href="#">Renewable Energy Design Services</a></li>
+                <li>A Rated House,<br><br>11 Sunnymead Road,<br><br>London, <br><br>NW9 8BT</li>
+                <li><a href=tel://+4402081234411>+44 020 8123 4411</li>
             </ul>
         </div>
         <div class="footer-column">
-            <h3>Support</h3>
+            <h3>Quicklinks</h3>
             <ul>
-                <li><a href="#">FAQ</a></li>
-
+                <li><a href="https://wp.arated.com/join-the-club/">Club</a></li>
+                <li><a href="https://wp.arated.com/energy/">Energy</a></li>
+                <li><a href="https://wp.arated.com/tesla/">Tesla</a></li>
+                <li><a href="https://wp.arated.com/finance">Finance</a></li>
+                <li><a href="https://myboiler.com/">MyBoiler.com</a></li>
             </ul>
         </div>
         <div class="footer-column">
-            <h3>Legal</h3>
-            <ul>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Use</a></li>
-            </ul>
+            <h3>Newsletter</h3>
+            <div id="mc_embed_shell">
+                <div id="mc_embed_signup">
+                    <form action="https://arated.us2.list-manage.com/subscribe/post?u=76b9d06d4164064c0ffb0d455&amp;id=68a8dc9423&amp;f_id=00aedae3f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_self" novalidate="">
+                        <div id="mc_embed_signup_scroll">
+                            <div class="mc-field-group">
+                                <label for="mce-EMAIL">Email Address <span class="asterisk"></span></label><br><br>
+                                <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value=""><br><br>
+                            </div>
+                            <div class="clear foot">
+                                <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe">
+                            </div>
+                            <br>
+                            <div id="mce-responses" class="clear foot">
+                                <div class="response" id="mce-error-response" style="display: none;"></div>
+                                <div class="response" id="mce-success-response" style="display: none;"></div>
+                            </div>
+                            <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                                <input type="text" name="b_76b9d06d4164064c0ffb0d455_68a8dc9423" tabindex="-1" value="">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -115,7 +174,25 @@
 
     <script>
         function toggleNav() {
-            document.querySelector('.nav-menu').classList.toggle('active');
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        }
+        
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+            
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const dropdown = toggle.closest('.dropdown');
+                    dropdown.classList.toggle('active');
+                });
+            });
+        });
+        
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('hidden');
         }
     </script>
 </body>
