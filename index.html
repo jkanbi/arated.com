@@ -30,34 +30,36 @@
             <div class="dot"></div>
             <div class="dot"></div>
         </div>
+        
         <!-- Grid Menu (Hidden by default) -->
         <nav id="nav-menu" class="nav-menu hidden">
             <div class="grid-menu">
-                <!--
-                <a href="http://ratings.arated.com/" class="grid-item">
-                    <svg class="grid-icon" viewBox="0 0 24 24">
-                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
-                    </svg>
-                    <span>Ratings</span>
-                </a>
-                -->
-                <a href="https://wp.arated.com/homes/" class="grid-item">
+                <a href="pages/wp-homes.html" target="page-content" class="grid-item">
                     <svg class="grid-icon" viewBox="0 0 24 24">
                         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
                     </svg>
                     <span>Homes</span>
                 </a>
-                <a href="https://wp.arated.com/investments/" class="grid-item">
+                <a href="pages/wp-epc.html" target="page-content" class="grid-item">
+                    <svg class="grid-icon" viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    <span>EPC</span>
+                </a>
+                <a href="pages/wp-investments.html" target="page-content" class="grid-item">
                     <svg class="grid-icon" viewBox="0 0 24 24">
                         <path d="M3 3v18h18V3H3zm16 16H5V5h14v14zM11 7h2v2h-2V7zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2z"/>
                     </svg>
                     <span>Investments</span>
                 </a>
-                <!-- Add more grid items as needed -->
             </div>
         </nav>
     </div>
 </header>
+
+<div class="content-container">
+    <iframe id="page-content" name="page-content" src="pages/home.html"></iframe>
+</div>
 
     <!-- Full-width banner -->
 <!-- <div class="banner">
@@ -77,27 +79,6 @@
 -->
 
 
-		<!-- Centered Input Box -->
-	<div class="search-container">
-		<!-- <p class="search-guidance">Enter keywords to search our site:</p> -->
-		<form action="https://wp.arated.com/" method="GET" class="search-form">  <!-- Replace with your actual WordPress URL -->
-			<div class="search-input-wrapper">
-				<input type="text" class="search-input" placeholder="Search..." name="s">  <!-- name="s" is crucial -->
-				<!-- Search Buttons - Inline with input -->
-				<div class="search-buttons-inline">
-					<button class="search-button" type="submit">></button>
-				</div>
-			</div>
-			<!--Additional Buttons - Below Input-->
-			<div class = "search-buttons-below">
-				<!--
-				<a href="/homes" class="search-button">Homes</button>
-				<a href="/tesla" class="search-button">Tesla</button>
-				-->
-			</div>
-		</form>
-	</div>
- 
  
     <!-- Main footer with 4 columns -->
     <footer class="footer">
@@ -227,35 +208,70 @@
     </footer>
 
     <script>
-		function toggleNav() {
-			const navMenu = document.querySelector('.nav-menu');
-			navMenu.classList.toggle('active');
+		function toggleMenu() {
+			const navMenu = document.getElementById('nav-menu');
+			navMenu.classList.toggle('hidden');
 		}
 		
-		document.addEventListener('DOMContentLoaded', (event) => {
-			const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-			
-			dropdownToggles.forEach(toggle => {
-				toggle.addEventListener('click', (e) => {
-					e.preventDefault();
-					const dropdown = toggle.closest('.dropdown');
-					dropdown.classList.toggle('active');
+		document.addEventListener('DOMContentLoaded', () => {
+			const navMenu = document.getElementById('nav-menu');
+			const dotsMenu = document.querySelector('.dots-menu');
+		
+			// Close menu when clicking a menu item
+			document.querySelectorAll('.grid-menu a').forEach(link => {
+				link.addEventListener('click', () => {
+					navMenu.classList.add('hidden'); // Close the menu
+					// Update URL hash
+					const href = link.getAttribute('href').replace('pages/', '').replace('.html', '');
+					window.location.hash = href;
 				});
 			});
+		
+		  // Close menu when clicking anywhere outside the menu or toggle button
+			document.addEventListener('click', (e) => {
+				// Only close if the menu is open (not hidden)
+				if (!navMenu.classList.contains('hidden')) {
+					// Check if the click is outside navMenu and dotsMenu
+					if (!navMenu.contains(e.target) && !dotsMenu.contains(e.target)) {
+						navMenu.classList.add('hidden');
+					}
+				}
+			});
+		
+			// Handle direct navigation via URL hash
+			window.addEventListener('load', () => {
+				const hash = window.location.hash.slice(1);
+				if (hash) {
+					const page = `pages/${hash}.html`;
+					document.getElementById('page-content').src = page;
+				}
+			});
 		});
-		
-		function toggleMenu() {
-    		const navMenu = document.getElementById('nav-menu');
-    		navMenu.classList.toggle('hidden');
-		}
-		
-		// Only run this if you want to override the CSS approach
-		if (false) { // Change to true to enable JS approach
-			const logos = document.querySelectorAll('.js-theme-logo');
-			logos.forEach(logo => logo.classList.remove('light-mode-logo', 'dark-mode-logo'));
-			// Then implement the JS approach as shown above
-		}
-		
+
     </script>
+
+    <style>
+        #app-content {
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        #app-content.loading {
+            opacity: 0.5;
+        }
+
+        .content-container {
+            width: 100%;
+            /* Adjust height as needed */
+            height: calc(100vh - 200px); /* Subtract header/footer height */
+            margin: 0 auto;
+        }
+
+        #page-content {
+            width: 100%;
+            height: 100%;
+            border: none;
+            overflow: auto;
+        }
+    </style>
 </body>
 </html>
