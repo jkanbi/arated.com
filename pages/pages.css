@@ -1,3 +1,49 @@
+		@media (prefers-color-scheme: light) {
+		:root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --card-bg: #f0f0f0;
+            --border-color: #cccccc;
+            --button-bg: #e0e0e0;
+            --button-text: #000000;
+            --link-color: #0000ee;
+            --footercols-color:#4b4f58;
+            --footer-link-color:#ffffff;
+            --copyright-color: #212121;
+			
+        }
+			/* Hide dark mode logo by default */
+			.dark-mode-logo {
+				display: none;
+			}
+			.light-mode-logo {
+				display: block;
+			}
+		}
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #121212;
+                --text-color: #ffffff;
+                --card-bg: #2b2b2b;
+                --border-color: #444444;
+                --button-bg: #333333;
+                --button-text: #ffffff;
+                --link-color: #8ab4f8;
+                --footercols-color:#121212;
+                --footer-link-color:#ffffff;
+                --copyright-color: #000000;
+            }
+			.light-mode-logo {
+				display: none;
+			}
+			.dark-mode-logo {
+				display: block;
+			}
+        }
+ 
+ 
+ 
         * {
             margin: 0;
             padding: 0;
@@ -7,12 +53,17 @@
 
 			font-family: Arial, sans-serif;
             line-height: 1.6;
-            background-color: #f8f8f8;
+            /*background-color: #f8f8f8;
             color: #333;
+            */
+            background-color: var(--bg-color);
+            color: var(--text-color);
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
         }
+
+        
         p{	
 			padding-bottom:20px;
         }
@@ -75,7 +126,7 @@
             padding: 40px 0;
         }
         .content-section {
-            background-color: #fff;
+            background-color: --bg-color;
             padding: 40px;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
