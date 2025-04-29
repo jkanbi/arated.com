@@ -38,7 +38,7 @@ document.addEventListener('click', () => {
   	document.title = pageTitle;
 
     // Build the API URL using the slug
-    const apiUrl = `https://wp.arated.com/wp-json/wp/v2/pages?slug=${slug}`;
+    const apiUrl = `https://myboiler.com/wp-json/wp/v2/pages?slug=${slug}`;
 
         async function fetchPageContent() {
             const contentDiv = document.getElementById('content');
