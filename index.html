@@ -247,6 +247,12 @@
 				}
 			});
 		});
+		
+		document.addEventListener('click', function(e) {
+		  if (e.target.tagName === 'A') {
+  		  window.scrollTo({ top: 0, behavior: 'smooth' });
+  			}
+		});
 
     </script>
 
