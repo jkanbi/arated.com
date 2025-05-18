@@ -43,7 +43,7 @@
         }
 
         body {
-            font-family: "Courier Prime", monospace;
+            font-family: "Arial", monospace;
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
