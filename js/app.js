@@ -177,7 +177,9 @@ document.addEventListener('click', (e) => {
     const navMenu = document.getElementById('nav-menu');
     const dotsMenu = document.querySelector('.dots-menu');
     
-    if (!navMenu.classList.contains('hidden') && !navMenu.contains(e.target) && !dotsMenu.contains(e.target)) {
+    // Close menu if clicking outside OR if clicking on a menu item
+    if ((!navMenu.classList.contains('hidden') && !navMenu.contains(e.target) && !dotsMenu.contains(e.target)) || 
+        (e.target.closest('.grid-item'))) {
         navMenu.classList.add('hidden');
     }
 }); 
