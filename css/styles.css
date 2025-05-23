@@ -197,7 +197,7 @@
 		
 		/* Search Container Styles */
 		.search-container {
-			max-width: 800px;
+			max-width: 1200px;
 			margin: 0 auto;
 			margin-top: 20vh;
 			padding: 0 1rem;
@@ -210,25 +210,29 @@
 			display: flex;
 			gap: 1rem;
 			margin: 2rem 0;
-			max-width: 800px;
+			max-width: 1200px;
 			margin-left: auto;
 			margin-right: auto;
+			width: 100%;
 		}
 		
 		#search-input {
 			flex: 1;
-			padding: 0.8rem;
-			font-size: 1.1rem;
+			padding: 1rem 1.5rem;
+			font-size: 1.2rem;
 			border: 1px solid #ccc;
 			border-radius: 4px;
-			min-width: 400px;
+			width: 100%;
+			min-width: 600px;
 		}
 		
 		#search-button, #reset-button {
-			padding: 0.8rem 1.5rem;
-			font-size: 1.1rem;
+			padding: 1rem 2rem;
+			font-size: 1.2rem;
 			border-radius: 4px;
 			cursor: pointer;
+			white-space: nowrap;
+			min-width: 120px;
 		}
 		
 		#search-button {
@@ -474,6 +478,40 @@
             
             .copyright {
                 text-align: center;
+            }
+            
+            .search-container {
+                padding: 0 1rem;
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .search-box {
+                flex-direction: row;
+                gap: 0.5rem;
+                width: 100%;
+            }
+            
+            #search-input {
+                padding: 0.8rem 1rem;
+                font-size: 1.1rem;
+                min-width: unset;
+                flex: 1;
+            }
+            
+            #search-button {
+                width: auto;
+                padding: 0.8rem 1.5rem;
+                font-size: 1.1rem;
+                min-width: unset;
+            }
+            
+            #reset-button {
+                width: 100%;
+                padding: 0.8rem 1rem;
+                font-size: 1.1rem;
+                min-width: unset;
             }
         }
 
