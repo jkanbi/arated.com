@@ -219,7 +219,7 @@
 		
 		#search-input {
 			flex: 1;
-			padding: 1rem 1.5rem;
+			padding: 1rem 1.5rem 1rem 2.5rem;
 			font-size: 1.2rem;
 			border: 1px solid #ccc;
 			border-radius: 4px;
@@ -460,6 +460,8 @@
 			.search-container {
 			  margin-top: 150px;
 			  margin-bottom: 150px;
+			  padding: 0 1rem;
+			  box-sizing: border-box; /* Include padding in the element's total width */
 			}
             
 		   .card {
@@ -489,22 +491,26 @@
             
             .search-container {
                 padding: 0 1rem;
-                width: 90%;
+                width: 100%;
                 margin-left: auto;
                 margin-right: auto;
+                box-sizing: border-box;
             }
             
             .search-box {
                 flex-direction: column; /* Stack elements vertically on mobile */
-                padding: 0 1rem;
-                box-sizing: border-box; /* Include padding in width on mobile */
+                padding: 0 1rem; /* Added horizontal padding */
+                width: 100%;
+                box-sizing: border-box;
             }
             
             #search-input {
                 font-size: 1rem;
-                padding: 0.8rem 1rem;
-                min-width: 0; /* Remove min-width on mobile */
-                flex: unset; /* Remove flex-grow on mobile */
+                padding: 0.8rem 1rem 0.8rem 2.5rem;
+                min-width: 0;
+                width: 100%;
+                box-sizing: border-box;
+                flex: unset;
             }
             
             .search-buttons {
