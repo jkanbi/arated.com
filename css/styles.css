@@ -217,6 +217,13 @@
 			box-sizing: border-box; /* Include padding in width */
 		}
 		
+		.search-input-container {
+			display: flex;
+			width: 100%;
+			gap: 0.5rem;
+			align-items: stretch; /* This ensures both elements stretch to the same height */
+		}
+		
 		#search-input {
 			flex: 1;
 			padding: 1rem 1.5rem 1rem 2.5rem;
@@ -246,10 +253,6 @@
 			background-color: #333;
 			color: white;
 			border: 1px solid #333;
-		}
-		
-		#search-button:hover {
-			background-color: #444;
 		}
 		
 		#reset-button {
@@ -498,10 +501,16 @@
             }
             
             .search-box {
-                flex-direction: column; /* Stack elements vertically on mobile */
-                padding: 0 1rem; /* Added horizontal padding */
+                flex-direction: column;
+                padding: 0 1rem;
                 width: 100%;
                 box-sizing: border-box;
+            }
+            
+            .search-input-container {
+                display: flex;
+                width: 100%;
+                gap: 0.5rem;
             }
             
             #search-input {
@@ -510,18 +519,30 @@
                 min-width: 0;
                 width: 100%;
                 box-sizing: border-box;
-                flex: unset;
+                flex: 1;
             }
             
             .search-buttons {
-                justify-content: center; /* Center buttons on mobile */
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                width: 100%;
             }
             
             #search-button, #reset-button {
                 font-size: 1rem;
                 padding: 0.8rem 1rem;
-                width: 100px; /* Fixed width on mobile */
-                min-width: unset; /* Remove min-width on mobile */
+                min-width: unset;
+            }
+
+            #search-button {
+                width: 80px;
+                margin-top: 0.5rem;
+            }
+
+            #reset-button {
+                width: 100px;
             }
         }
 
