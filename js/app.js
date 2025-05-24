@@ -13,7 +13,9 @@ const routes = {
     '/club': 'club',
     '/energy': 'energy',
     '/tesla': 'tesla',
-    '/finance': 'finance'
+    '/finance': 'finance',
+    '/calculators': 'calculators',
+    '/misc': 'misc'
 };
 
 function decodeHtmlEntities(str) {
