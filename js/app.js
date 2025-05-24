@@ -164,22 +164,4 @@ async function render() {
 
 // Initialize the app
 window.addEventListener('hashchange', render);
-window.addEventListener('DOMContentLoaded', render);
-
-// Menu toggle functionality
-function toggleMenu() {
-    const navMenu = document.getElementById('nav-menu');
-    navMenu.classList.toggle('hidden');
-}
-
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-    const navMenu = document.getElementById('nav-menu');
-    const dotsMenu = document.querySelector('.dots-menu');
-    
-    // Close menu if clicking outside OR if clicking on a menu item
-    if ((!navMenu.classList.contains('hidden') && !navMenu.contains(e.target) && !dotsMenu.contains(e.target)) || 
-        (e.target.closest('.grid-item'))) {
-        navMenu.classList.add('hidden');
-    }
-}); 
+window.addEventListener('DOMContentLoaded', render); 
