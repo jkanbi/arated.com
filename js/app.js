@@ -29,8 +29,10 @@ function createSearchBox() {
         <div class="search-container">
             <div class="search-box">
                 <input type="text" id="search-input" placeholder="Search">
-                <button id="search-button">GO</button>
-                <button id="reset-button" class="hidden">RESET</button>
+                <div class="search-buttons">
+                    <button id="search-button">GO</button>
+                    <button id="reset-button" class="hidden">RESET</button>
+                </div>
             </div>
             <div id="search-results"></div>
         </div>

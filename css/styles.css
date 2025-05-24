@@ -214,6 +214,7 @@
 			margin-left: auto;
 			margin-right: auto;
 			width: 100%;
+			box-sizing: border-box; /* Include padding in width */
 		}
 		
 		#search-input {
@@ -223,7 +224,13 @@
 			border: 1px solid #ccc;
 			border-radius: 4px;
 			width: 100%;
-			min-width: 600px;
+			min-width: 600px; /* Restore desktop min-width */
+		}
+		
+		.search-buttons {
+			display: flex; /* Keep buttons inline by default */
+			gap: 1rem;
+			/* justify-content: center; Removed default centering */
 		}
 		
 		#search-button, #reset-button {
@@ -232,7 +239,7 @@
 			border-radius: 4px;
 			cursor: pointer;
 			white-space: nowrap;
-			min-width: 120px;
+			min-width: 120px; /* Restore desktop min-width */
 		}
 		
 		#search-button {
@@ -488,30 +495,27 @@
             }
             
             .search-box {
-                flex-direction: row;
-                gap: 0.5rem;
-                width: 100%;
+                flex-direction: column; /* Stack elements vertically on mobile */
+                padding: 0 1rem;
+                box-sizing: border-box; /* Include padding in width on mobile */
             }
             
             #search-input {
+                font-size: 1rem;
                 padding: 0.8rem 1rem;
-                font-size: 1.1rem;
-                min-width: unset;
-                flex: 1;
+                min-width: 0; /* Remove min-width on mobile */
+                flex: unset; /* Remove flex-grow on mobile */
             }
             
-            #search-button {
-                width: auto;
-                padding: 0.8rem 1.5rem;
-                font-size: 1.1rem;
-                min-width: unset;
+            .search-buttons {
+                justify-content: center; /* Center buttons on mobile */
             }
             
-            #reset-button {
-                width: 100%;
+            #search-button, #reset-button {
+                font-size: 1rem;
                 padding: 0.8rem 1rem;
-                font-size: 1.1rem;
-                min-width: unset;
+                width: 100px; /* Fixed width on mobile */
+                min-width: unset; /* Remove min-width on mobile */
             }
         }
 
@@ -522,18 +526,35 @@
     padding: 2rem 1rem;
     flex: 1;
     text-align: left;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .post h1, .page h1 {
     margin-bottom: 2rem;
     font-size: 2rem;
+    width: 100%;
 }
 
 .post-content, .page-content {
     line-height: 1.6;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .post-content img, .page-content img {
     max-width: 100%;
     height: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .post, .page {
+        padding: 1.5rem 1rem;
+        width: 100%;
+    }
+    
+    .post h1, .page h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
 }
