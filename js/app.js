@@ -41,7 +41,7 @@ function createSearchBox() {
 
 async function searchPosts(query) {
     try {
-        const response = await fetch(`${WP_API_BASE}search?search=${encodeURIComponent(query)}&subtype=post&per_page=10`);
+        const response = await fetch(`${WP_API_BASE}search?search=${encodeURIComponent(query)}&subtype=post,page&per_page=10`);
         const results = await response.json();
         return results;
     } catch (error) {
@@ -64,11 +64,12 @@ function displaySearchResults(results) {
         resetButton.classList.remove('hidden');
         const html = results.map(result => `
             <div class="search-result">
-                <h3><a href="#/post/${result.id}">${decodeHtmlEntities(result.title)}</a></h3>
+                <h3><a href="#/${result.type}/${result.id}">${decodeHtmlEntities(result.title)}</a></h3>
                 ${result.excerpt ? `<p>${decodeHtmlEntities(result.excerpt)}</p>` : ''}
                 <div class="search-meta">
                     ${result.date ? `<span class="search-date">${new Date(result.date).toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}</span>` : ''}
                     ${result.type === 'post' ? '<span class="search-type">Article</span>' : ''}
+                     ${result.type === 'page' ? '<span class="search-type">Page</span>' : ''}
                 </div>
             </div>
         `).join('');
@@ -118,9 +119,38 @@ async function render() {
 
     // Handle post pages
     if (path.startsWith('/post/')) {
-        const postId = path.split('/')[2];
+        const contentId = path.split('/')[2];
+        console.log('Attempting to load post with ID:', contentId);
         try {
-            const response = await fetch(`${WP_API_BASE}posts/${postId}`);
+            const response = await fetch(`${WP_API_BASE}posts/${contentId}`);
+            
+            if (response.status === 404) {
+                console.log('Post not found, attempting to load as page with ID:', contentId);
+                // If post fetch returns 404, try fetching as a page
+                const pageResponse = await fetch(`${WP_API_BASE}pages/${contentId}`);
+                if (!pageResponse.ok) {
+                     console.error('HTTP error loading page with same ID!', pageResponse.status, pageResponse.statusText);
+                     appDiv.innerHTML = `<h1>Error loading content: ${pageResponse.status} ${pageResponse.statusText}</h1>`;
+                     document.title = 'Error - ARated.com';
+                     return;
+                }
+                const page = await pageResponse.json();
+                 appDiv.innerHTML = `
+                    <article class="page">
+                        <h1>${decodeHtmlEntities(page.title.rendered)}</h1>
+                        <div class="page-content">${page.content.rendered}</div>
+                    </article>
+                `;
+                document.title = decodeHtmlEntities(page.title.rendered) + ' - ARated.com';
+                return;
+            }
+
+            if (!response.ok) {
+                console.error('HTTP error loading post!', response.status, response.statusText);
+                appDiv.innerHTML = `<h1>Error loading post: ${response.status} ${response.statusText}</h1>`;
+                document.title = 'Error - ARated.com';
+                return;
+            }
             const post = await response.json();
             appDiv.innerHTML = `
                 <article class="post">
@@ -130,7 +160,36 @@ async function render() {
             `;
             document.title = decodeHtmlEntities(post.title.rendered) + ' - ARated.com';
         } catch (error) {
-            appDiv.innerHTML = '<h1>Error loading post</h1>';
+            console.error('Error fetching content:', error);
+            appDiv.innerHTML = '<h1>Error loading content</h1>';
+            document.title = 'Error - ARated.com';
+        }
+        return;
+    }
+
+    // Handle page loading by ID (from search results)
+    if (path.startsWith('/page/')) {
+        const pageId = path.split('/')[2];
+         console.log('Attempting to load page with ID:', pageId);
+        try {
+            const response = await fetch(`${WP_API_BASE}pages/${pageId}`);
+             if (!response.ok) {
+                 console.error('HTTP error loading page!', response.status, response.statusText);
+                 appDiv.innerHTML = `<h1>Error loading page: ${response.status} ${response.statusText}</h1>`;
+                 document.title = 'Error - ARated.com';
+                 return;
+            }
+            const page = await response.json();
+            appDiv.innerHTML = `
+                <article class="page">
+                    <h1>${decodeHtmlEntities(page.title.rendered)}</h1>
+                    <div class="page-content">${page.content.rendered}</div>
+                </article>
+            `;
+            document.title = decodeHtmlEntities(page.title.rendered) + ' - ARated.com';
+        } catch (error) {
+            console.error('Error fetching page:', error);
+            appDiv.innerHTML = '<h1>Error loading page</h1>';
             document.title = 'Error - ARated.com';
         }
         return;
