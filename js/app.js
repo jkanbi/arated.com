@@ -1,24 +1,5 @@
 const WP_API_BASE = 'https://myboiler.com/wp-json/wp/v2/';
 
-const routes = {
-    '/': { slug: 'home', source: 'wordpress' },
-    '/homes': { slug: 'homes', source: 'wordpress' },
-    '/epc': { slug: 'epc', source: 'wordpress' },
-    '/investments': { slug: 'investments', source: 'wordpress' },
-    '/about-us': { slug: 'about-us', source: 'wordpress' },
-    '/carbon-emissions': { slug: 'carbon-emissions', source: 'wordpress' },
-    '/mission': { slug: 'mission', source: 'wordpress' },
-    '/privacy-policy': { slug: 'privacy-policy', source: 'wordpress' },
-    '/affilate-activity-disclosure': { slug: 'affilate-activity-disclosure', source: 'wordpress' },
-    '/club': { slug: 'club', source: 'wordpress' },
-    '/energy': { slug: 'energy', source: 'wordpress' },
-    '/tesla': { slug: 'tesla', source: 'wordpress' },
-    '/finance': { slug: 'finance', source: 'wordpress' },
-    '/calculators': { slug: 'calculators', source: 'wordpress' },
-    '/misc': { slug: 'misc', source: 'wordpress' },
-    '/test-page': { slug: 'test-page', source: 'markdown' }
-};
-
 function decodeHtmlEntities(str) {
     const txt = document.createElement('textarea');
     txt.innerHTML = str;
