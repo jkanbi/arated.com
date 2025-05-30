@@ -1,21 +1,22 @@
 const WP_API_BASE = 'https://myboiler.com/wp-json/wp/v2/';
 
 const routes = {
-    '/': 'home',
-    '/homes': 'homes',
-    '/epc': 'epc',
-    '/investments': 'investments',
-    '/about-us': 'about-us',
-    '/carbon-emissions': 'carbon-emissions',
-    '/mission': 'mission',
-    '/privacy-policy': 'privacy-policy',
-    '/affilate-activity-disclosure': 'affilate-activity-disclosure',
-    '/club': 'club',
-    '/energy': 'energy',
-    '/tesla': 'tesla',
-    '/finance': 'finance',
-    '/calculators': 'calculators',
-    '/misc': 'misc'
+    '/': { slug: 'home', source: 'wordpress' },
+    '/homes': { slug: 'homes', source: 'wordpress' },
+    '/epc': { slug: 'epc', source: 'wordpress' },
+    '/investments': { slug: 'investments', source: 'wordpress' },
+    '/about-us': { slug: 'about-us', source: 'wordpress' },
+    '/carbon-emissions': { slug: 'carbon-emissions', source: 'wordpress' },
+    '/mission': { slug: 'mission', source: 'wordpress' },
+    '/privacy-policy': { slug: 'privacy-policy', source: 'wordpress' },
+    '/affilate-activity-disclosure': { slug: 'affilate-activity-disclosure', source: 'wordpress' },
+    '/club': { slug: 'club', source: 'wordpress' },
+    '/energy': { slug: 'energy', source: 'wordpress' },
+    '/tesla': { slug: 'tesla', source: 'wordpress' },
+    '/finance': { slug: 'finance', source: 'wordpress' },
+    '/calculators': { slug: 'calculators', source: 'wordpress' },
+    '/misc': { slug: 'misc', source: 'wordpress' },
+    '/test-page': { slug: 'test-page', source: 'markdown' }
 };
 
 function decodeHtmlEntities(str) {
@@ -196,30 +197,49 @@ async function render() {
     }
 
     // Handle other pages
-    const slug = routes[path];
-    if (!slug) {
+    const route = routes[path];
+    if (!route) {
         appDiv.innerHTML = '<h1>404 Not Found</h1>';
         document.title = '404 Not Found - ARated.com';
         return;
     }
 
     try {
-        const response = await fetch(`${WP_API_BASE}pages?slug=${slug}`);
-        const data = await response.json();
-        if (data.length > 0) {
-            const page = data[0];
+        if (route.source === 'markdown') {
+            // Load markdown content
+            const response = await fetch(`/pages/${route.slug}.md`);
+            if (!response.ok) {
+                throw new Error(`Failed to load markdown file: ${response.status}`);
+            }
+            const markdown = await response.text();
+            // Convert markdown to HTML (you'll need to add a markdown parser library)
+            const html = marked.parse(markdown);
             appDiv.innerHTML = `
                 <article class="page">
-                    <h1>${decodeHtmlEntities(page.title.rendered)}</h1>
-                    <div class="page-content">${page.content.rendered}</div>
+                    <div class="page-content">${html}</div>
                 </article>
             `;
-            document.title = decodeHtmlEntities(page.title.rendered) + ' - ARated.com';
+            document.title = route.slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') + ' - ARated.com';
         } else {
-            appDiv.innerHTML = '<h1>Page Not Found</h1>';
-            document.title = 'Page Not Found - ARated.com';
+            // Load WordPress content
+            const response = await fetch(`${WP_API_BASE}pages?slug=${route.slug}`);
+            const data = await response.json();
+            if (data.length > 0) {
+                const page = data[0];
+                appDiv.innerHTML = `
+                    <article class="page">
+                        <h1>${decodeHtmlEntities(page.title.rendered)}</h1>
+                        <div class="page-content">${page.content.rendered}</div>
+                    </article>
+                `;
+                document.title = decodeHtmlEntities(page.title.rendered) + ' - ARated.com';
+            } else {
+                appDiv.innerHTML = '<h1>Page Not Found</h1>';
+                document.title = 'Page Not Found - ARated.com';
+            }
         }
     } catch (error) {
+        console.error('Error loading content:', error);
         appDiv.innerHTML = '<h1>Error loading page</h1>';
         document.title = 'Error - ARated.com';
     }
