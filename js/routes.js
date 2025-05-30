@@ -15,4 +15,5 @@ const routes = {
     '/calculators': { slug: 'calculators', source: 'wordpress' },
     '/misc': { slug: 'misc', source: 'wordpress' },
     '/test-page': { slug: 'test-page', source: 'markdown' },
+    '/renewables': { slug: 'renewables', source: 'wordpress' }
 };

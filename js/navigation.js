@@ -33,6 +33,12 @@ const navigationMenu = `
                 </svg>
                 <span>Misc</span>
             </a>
+            <a href="#/renewables" class="grid-item">
+				<svg class="grid-icon" viewBox="0 0 24 24">
+				    <path d="M12 3c-3.87 0-7 3.13-7 7 0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#4CAF50"/>
+				</svg>
+                <span>Renewables</span>
+            </a>
         </div>
     </nav>
 `;
