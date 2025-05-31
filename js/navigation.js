@@ -8,16 +8,15 @@ const navigationMenu = `
                 </svg>
                 <span>Homes</span>
             </a>
-            <a href="#/epc" class="grid-item">
-                <svg class="grid-icon" viewBox="0 0 24 24">
-                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                </svg>
-                <span>EPC</span>
-            </a>
             <a href="#/investments" class="grid-item">
-                <svg class="grid-icon" viewBox="0 0 24 24">
-                    <path d="M3 3v18h18V3H3zm16 16H5V5h14v14zM11 7h2v2h-2V7zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2z"/>
-                </svg>
+				<svg class="grid-icon" width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+				  <rect x="20" y="20" width="80" height="80" rx="10" fill="#0066cc" opacity="0.2"/>
+				  <path d="M30,90 L50,50 L70,70 L90,30" stroke="#0066cc" stroke-width="8" fill="none" stroke-linecap="round"/>
+				  <circle cx="30" cy="90" r="5" fill="#0066cc"/>
+				  <circle cx="50" cy="50" r="5" fill="#0066cc"/>
+				  <circle cx="70" cy="70" r="5" fill="#0066cc"/>
+				  <circle cx="90" cy="30" r="5" fill="#0066cc"/>
+				</svg>
                 <span>Investments</span>
             </a>
             <a href="#/calculators" class="grid-item">
@@ -27,17 +26,24 @@ const navigationMenu = `
 </svg>
                 <span>Calculators</span>
             </a>
-            <a href="#/misc" class="grid-item">
-                <svg class="grid-icon" viewBox="0 0 24 24">
-                    <path d="M3 3v18h18V3H3zm16 16H5V5h14v14zM11 7h2v2h-2V7zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2z"/>
-                </svg>
-                <span>Misc</span>
+            <a href="#/energy" class="grid-item">
+<svg class="grid-icon" width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <rect x="20" y="20" width="80" height="80" rx="10" fill="#fcc200" opacity="0.2"/>
+  <path d="M40 30 L70 30 L50 60 L80 60 L40 90" stroke="#fcc200" stroke-width="8" fill="none" stroke-linecap="round"/>
+</svg>
+                <span>Energy</span>
             </a>
             <a href="#/renewables" class="grid-item">
 				<svg class="grid-icon" viewBox="0 0 24 24">
 				    <path d="M12 3c-3.87 0-7 3.13-7 7 0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#4CAF50"/>
 				</svg>
                 <span>Renewables</span>
+            </a>
+            <a href="#/epc" class="grid-item">
+                <svg class="grid-icon" viewBox="0 0 24 24">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                </svg>
+                <span>EPC</span>
             </a>
         </div>
     </nav>
