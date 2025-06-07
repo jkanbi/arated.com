@@ -16,5 +16,5 @@ const routes = {
     '/misc': { slug: 'misc', source: 'wordpress' },
     '/test-page': { slug: 'test-page', source: 'markdown' },
     '/renewables': { slug: 'renewables', source: 'wordpress' },
-    '/epc-checklist': { slug: 'ar-epc-checklist', source: 'wordpress' }
+    '/epc-checklist': { slug: 'epc-checklist', source: 'markdown' }
 };
