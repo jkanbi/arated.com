@@ -1,4 +1,4 @@
-const WP_API_BASE = 'https://myboiler.com/wp-json/wp/v2/';
+const WP_API_BASE = 'https://hub.myboiler.com/wp-json/wp/v2/';
 
 function decodeHtmlEntities(str) {
     const txt = document.createElement('textarea');
