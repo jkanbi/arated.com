@@ -8,16 +8,55 @@ function decodeHtmlEntities(str) {
 
 function createSearchBox() {
     return `
-        <div class="search-container">
-            <div class="search-box">
-                <input type="text" id="search-input" placeholder="Search">
-                <div class="search-buttons">
-                    <button id="search-button">GO</button>
-                    <button id="reset-button" class="hidden">RESET</button>
-                </div>
-            </div>
-            <div id="search-results"></div>
-        </div>
+<div style="text-align: center; margin: 40px auto; padding: 60px 0;">
+  <form role="search" method="get" action="/" style="display: inline-flex; align-items: center;">
+    <input 
+      type="search" 
+      name="s" 
+      id="search-input"
+      placeholder="Search..." 
+      style="
+        height: 44px;
+        width: 420px;
+        max-width: 80%;
+        padding: 0 18px;
+        border: 1px solid #dfe1e5;
+        border-radius: 10px 0 0 10px;
+        font-size: 16px;
+        background: #f7f7f7;
+        box-sizing: border-box;
+        outline: none;
+      "
+    >
+    <button 
+      type="submit" 
+      id="search-button"
+      style="
+        height: 44px;
+        width: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #777;
+        border: 1px solid #444;
+        border-left: none;
+        border-radius: 0 10px 10px 0;
+        font-size: 16px;
+        color: #fff;
+        box-sizing: border-box;
+        cursor: pointer;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        line-height: 0;
+        padding: 0;
+      "
+      aria-label="Go"
+    >
+      Go
+    </button>
+  </form>
+  <div id="search-results"></div>
+</div>
     `;
 }
 
@@ -71,7 +110,6 @@ async function render() {
         // Add search functionality
         const searchInput = document.getElementById('search-input');
         const searchButton = document.getElementById('search-button');
-        const resetButton = document.getElementById('reset-button');
 
         const performSearch = async () => {
             const query = searchInput.value.trim();
@@ -81,20 +119,12 @@ async function render() {
             }
         };
 
-        const resetSearch = () => {
-            searchInput.value = '';
-            document.getElementById('search-results').innerHTML = '';
-            document.querySelector('.search-container').style.marginTop = '20vh';
-            resetButton.classList.add('hidden');
-        };
-
         searchButton.addEventListener('click', performSearch);
         searchInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 performSearch();
             }
         });
-        resetButton.addEventListener('click', resetSearch);
 
         return;
     }
