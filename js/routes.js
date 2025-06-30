@@ -6,6 +6,7 @@ const routes = {
     '/about-us': { slug: 'about-us', source: 'wordpress' },
     '/carbon-emissions': { slug: 'carbon-emissions', source: 'wordpress' },
     '/mission': { slug: 'mission', source: 'wordpress' },
+    '/terms-and-conditions': { slug: 'terms-and-conditions', source: 'wordpress' },
     '/privacy-policy': { slug: 'privacy-policy', source: 'wordpress' },
     '/affilate-activity-disclosure': { slug: 'affilate-activity-disclosure', source: 'wordpress' },
     '/club': { slug: 'club', source: 'wordpress' },
