@@ -655,3 +655,9 @@ form[role="search"] button[type="submit"] {
     width: 100%;
   }
 }
+
+@media (max-width: 600px) {
+  .tagline-break {
+    display: block;
+  }
+}
