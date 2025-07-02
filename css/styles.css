@@ -6,10 +6,10 @@
             --border-color: #cccccc;
             --button-bg: #e0e0e0;
             --button-text: #000000;
-            --link-color: #0000ee;
-            --footercols-color:#4b4f58;
-            --footer-link-color:#ffffff;
-            --copyright-color: #212121;
+            --link-color: #333333;         /*#0000ee */
+            --footercols-color:#ffffff ;  /*  #4b4f58   */
+            --footer-link-color:#000000;  /*  #ffffff   */
+            --copyright-color: #ffffff;   /*  #212121   */
 			
         }
 			/* Hide dark mode logo by default */
@@ -30,9 +30,9 @@
                 --button-bg: #333333;
                 --button-text: #ffffff;
                 --link-color: #8ab4f8;
-                --footercols-color:#121212;
-                --footer-link-color:#ffffff;
-                --copyright-color: #000000;
+                --footercols-color:#000000;  /* #121212 */
+                --footer-link-color:#ffffff; /* #ffffff */
+                --copyright-color: #000000;  /* #000000 */
             }
 			.light-mode-logo {
 				display: none;
@@ -408,9 +408,19 @@
             text-decoration: none;
         }
 
+		#mce-EMAIL{
+			border-color: black;
+			border-width: 1px;
+			border-radius: 4px;
+			padding: 4px;
+		}
+
+		#mc-embedded-subscribe{
+			
+		}
 
 		.social-media{
-			fill:var(--footer-link-color);
+			fill:var(--footercols-color);
 			justify-content:center;
 		}
 
@@ -423,7 +433,7 @@
 			margin-right: 10px;
 		}
 		.wp-social-link-x{
-			background-color: black;
+			background-color: var(--footer-link-color);
 		}
 		
 		.wp-social-link-youtube{
