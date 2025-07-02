@@ -59,7 +59,9 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            min-height: 0; /* This prevents flex-grow from creating extra space */
+            min-height: 80vh;
+            justify-content: center;
+            align-items: center;
         }
 
 		/* General Styles */
@@ -197,14 +199,7 @@
 		
 		/* Search Container Styles */
 		.search-container {
-			max-width: 1200px;
-			margin: 0 auto;
-			margin-top: 20vh;
-			margin-bottom: 20vh;
-			padding: 0 1rem;
-			text-align: center;
-			flex: 1;
-			transition: margin-top 0.3s ease;
+			margin: 0;
 		}
 		
 		.search-box {
@@ -464,10 +459,13 @@
 				
 			/* Search Container */
 			.search-container {
-			  margin-top: 150px;
-			  margin-bottom: 150px;
+			  margin-top: 40px;
+			  margin-bottom: 40px;
+			  margin-left: auto;
+			  margin-right: auto;
 			  padding: 0 1rem;
-			  box-sizing: border-box; /* Include padding in the element's total width */
+			  width: 100%;
+			  box-sizing: border-box;
 			}
             
 		   .card {
@@ -547,6 +545,12 @@
 
             #reset-button {
                 width: 100px;
+            }
+
+            #app {
+                min-height: 40vh;
+                justify-content: center;
+                align-items: center;
             }
         }
 
