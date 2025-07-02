@@ -73,24 +73,23 @@ async function searchPosts(query) {
 
 function displaySearchResults(results) {
     const resultsDiv = document.getElementById('search-results');
-    const searchContainer = document.querySelector('.search-container');
     const resetButton = document.getElementById('reset-button');
     
     if (!results.length) {
         resultsDiv.innerHTML = '<p>No results found.</p>';
-        searchContainer.style.marginTop = '20vh';
-        resetButton.classList.add('hidden');
+        if (resetButton) resetButton.classList.add('hidden');
     } else {
-        searchContainer.style.marginTop = '2rem';
-        resetButton.classList.remove('hidden');
+        if (resetButton) resetButton.classList.remove('hidden');
         const html = results.map(result => `
             <div class="search-result">
                 <h3><a href="#/${result.type}/${result.id}">${decodeHtmlEntities(result.title)}</a></h3>
                 ${result.excerpt ? `<p>${decodeHtmlEntities(result.excerpt)}</p>` : ''}
                 <div class="search-meta">
-                    ${result.date ? `<span class="search-date">${new Date(result.date).toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}</span>` : ''}
+                    ${result.date ? `<span class="search-date">
+                        ${new Date(result.date).toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}
+                    </span>` : ''}
                     ${result.type === 'post' ? '<span class="search-type">Article</span>' : ''}
-                     ${result.type === 'page' ? '<span class="search-type">Page</span>' : ''}
+                    ${result.type === 'page' ? '<span class="search-type">Page</span>' : ''}
                 </div>
             </div>
         `).join('');
@@ -119,7 +118,10 @@ async function render() {
             }
         };
 
-        searchButton.addEventListener('click', performSearch);
+        searchButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            performSearch();
+        });
         searchInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 performSearch();
