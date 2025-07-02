@@ -524,6 +524,7 @@
                 width: 100%;
                 box-sizing: border-box;
                 flex: 1;
+                margin: 150px 0px;
             }
             
             .search-buttons {
