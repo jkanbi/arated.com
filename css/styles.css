@@ -699,16 +699,17 @@ form[role="search"] button[type="submit"] {
     padding: 0;
 }
 .copyright-text {
-    flex: 1;
-    font-size: 1rem;
+    width: 100%;
     text-align: center;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    padding-left: 32px;
+    margin-top: 8px;
+    margin-bottom: 0;
+    padding-left: 0;
     padding-right: 0;
+    font-size: 1rem;
+    display: block;
+    align-items: unset;
+    justify-content: unset;
+    height: unset;
 }
 .copyright-newsletter {
     display: flex;
@@ -813,6 +814,7 @@ form[role="search"] button[type="submit"] {
     height: 100%;
     margin: 0;
     padding: 0;
+    margin-left: 24px; /* Add left margin for spacing from the edge or other elements */
 }
 .copyright-social .social-media {
     display: flex;
@@ -835,4 +837,40 @@ form[role="search"] button[type="submit"] {
     align-items: center;
     justify-content: center;
     height: 100%;
+}
+
+/* Responsive copyright/newsletter row */
+.newsletter-and-copyright {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    flex: 1;
+    justify-content: flex-end;
+}
+@media screen and (max-width: 768px) {
+    .newsletter-and-copyright {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+    }
+    .copyright-newsletter {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 0;
+    }
+    .copyright-text {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+/* Optionally, to equally space all items in the bottom row */
+.copyright-row {
+    justify-content: space-between;
 }
