@@ -210,6 +210,7 @@ async function render() {
     }
 
     // Handle other pages
+    console.log('Current path:', path, 'Available routes:', Object.keys(routes));
     const route = routes[path];
     if (!route) {
         appDiv.innerHTML = '<h1>404 Not Found</h1>';
@@ -222,7 +223,9 @@ async function render() {
             // Load markdown content
             const response = await fetch(`/pages/${route.slug}.md`);
             if (!response.ok) {
-                throw new Error(`Failed to load markdown file: ${response.status}`);
+                appDiv.innerHTML = `<h1>Error loading markdown file: ${response.status} (${response.statusText})</h1><p>Path: /pages/${route.slug}.md</p>`;
+                document.title = 'Error - ARated.com';
+                return;
             }
             const markdown = await response.text();
             // Convert markdown to HTML (you'll need to add a markdown parser library)

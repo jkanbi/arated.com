@@ -38,34 +38,13 @@
     <!-- Main footer with 4 columns -->
     <footer class="footer">
         <div class="footer-column">
-            <h3>About Us</h3>
-            <ul>
-                <li><a href="#/about-us">Company</a></li>
-                <li><a href="#/mission">Our Mission</a></li>
-                <li><a href="#/privacy-policy">Privacy Policy</a></li>
-                <li><a href="#/carbon-emissions">Carbon Emissions</a></li>
-                <li><a href="#/affilate-activity-disclosure">Affilate Activity</a></li>
-            </ul>
+            <!-- About Us links moved to markdown page -->
         </div>
         <div class="footer-column">
-            <h3>Contact Us</h3>
-            <ul>
-                <li>A Rated House,</li>
-                <li>11 Sunnymead Road,</li>
-                <li>London, </li>
-                <li>NW9 8BT</li>
-                <li><a href="tel:+4402081234411">+44 020 8123 4411</a></li>
-            </ul>
+            <!-- Contact Us links moved to markdown page -->
         </div>
         <div class="footer-column">
-            <h3>Quicklinks</h3>
-            <ul>
-                <li><a href="#/club">Club</a></li>
-                <li><a href="#/energy">Energy</a></li>
-                <li><a href="#/tesla">Tesla</a></li>
-                <li><a href="#/finance">Finance</a></li>
-                <li><a href="https://myboiler.com/">MyBoiler.com</a></li>
-            </ul>
+            <!-- Quicklinks moved to markdown page -->
         </div>
         <div class="footer-column">
             <!-- Newsletter title and signup removed from here -->
@@ -73,7 +52,12 @@
     </footer>
 
     <!-- Copyright footer with social media icons left, newsletter right, and copyright text center -->
-    <footer class="footer copyright copyright-row responsive-footer">
+    <footer class="footer copyright copyright-row responsive-footer footer-links-row" aria-label="Footer Links Row">
+        <div class="footer-links">
+            <a href="#/about-us" class="footer-link">About Us</a>
+            <a href="#/contact-us" class="footer-link">Contact Us</a>
+            <a href="#/quicklinks" class="footer-link">Quicklinks</a>
+        </div>
         <div class="copyright-social">
             <ul class="social-media no-bullets">
                 <li class="wp-social-link wp-social-link-x wp-block-social-link">
@@ -133,10 +117,10 @@
                 </form>
             </div>
         </div>
-        <div class="copyright-text" style="width:100%;text-align:center;margin-top:8px;">
-            <p>© 2025 ARated.com - All rights reserved.</p>
-        </div>
     </footer>
+    <div class="copyright-text" style="width:100%;text-align:center;margin-top:8px;">
+        <p>© 2025 ARated.com - All rights reserved.</p>
+    </div>
 
     <!-- Add marked.js for markdown parsing -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>

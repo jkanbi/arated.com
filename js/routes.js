@@ -3,7 +3,8 @@ const routes = {
     '/homes': { slug: 'homes', source: 'wordpress' },
     '/epc': { slug: 'epc', source: 'wordpress' },
     '/investments': { slug: 'investments', source: 'wordpress' },
-    '/about-us': { slug: 'about-us', source: 'wordpress' },
+    '/about-us': { slug: 'about-us', source: 'markdown' },
+    '/company': { slug: 'company', source: 'wordpress' },
     '/carbon-emissions': { slug: 'carbon-emissions', source: 'wordpress' },
     '/mission': { slug: 'mission', source: 'wordpress' },
     '/terms-and-conditions': { slug: 'terms-and-conditions', source: 'wordpress' },
@@ -17,5 +18,7 @@ const routes = {
     '/misc': { slug: 'misc', source: 'wordpress' },
     '/test-page': { slug: 'test-page', source: 'markdown' },
     '/renewables': { slug: 'renewables', source: 'wordpress' },
-    '/epc-checklist': { slug: 'epc-checklist', source: 'markdown' }
+    '/epc-checklist': { slug: 'epc-checklist', source: 'markdown' },
+    '/contact-us': { slug: 'contact-us', source: 'markdown' },
+    '/quicklinks': { slug: 'quicklinks', source: 'markdown' }
 };

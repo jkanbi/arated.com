@@ -430,7 +430,6 @@
 			border-radius:9999px;
 			display: inline-block;
 			padding:5px 7px 5px 7px;
-			margin-top: 30px;
 			margin-left: 10px;
 			margin-right: 10px;
 		}
@@ -685,192 +684,108 @@ form[role="search"] button[type="submit"] {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 24px;
-    padding: 10px;
+    gap: 0;
+    padding: 6px 0 0 0;
     background-color: var(--copyright-color);
     color: var(--footer-link-color);
     position: static;
-}
-.copyright-social {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-.copyright-text {
-    width: 100%;
-    text-align: center;
-    margin-top: 8px;
-    margin-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    font-size: 1rem;
-    display: block;
-    align-items: unset;
-    justify-content: unset;
-    height: unset;
-}
-.copyright-newsletter {
-    display: flex;
-    align-items: center;
-    position: static;
-    margin-left: 0;
-}
-@media screen and (max-width: 768px) {
-    .copyright-row {
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        text-align: center;
-    }
-    .copyright-social {
-        margin-bottom: 8px;
-    }
-    .copyright-text {
-        margin: 0;
-    }
-    .copyright-social .social-media {
-        justify-content: center;
-    }
-    .copyright-newsletter {
-        margin-top: 8px;
-        justify-content: center;
-        width: 100%;
-    }
-    .copyright-newsletter form {
-        flex-direction: column;
-        align-items: center;
-        gap: 4px;
-    }
-    .copyright-newsletter .mc-field-group {
-        flex-direction: column;
-        align-items: center;
-        gap: 2px;
-    }
-    .copyright-newsletter input[type="email"] {
-        width: 100%;
-        min-width: 0;
-    }
-}
-
-.copyright-newsletter form {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-direction: row;
-}
-.copyright-newsletter .mc-field-group {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    margin-bottom: 0;
-    flex-direction: row;
-}
-
-@media screen and (max-width: 768px) {
-    .copyright-newsletter form {
-        flex-direction: column;
-        align-items: center;
-        gap: 4px;
-    }
-    .copyright-newsletter .mc-field-group {
-        flex-direction: column;
-        align-items: center;
-        gap: 2px;
-    }
-}
-
-.copyright-newsletter input[type="submit"] {
-    padding: 3px 14px;
-    font-size: 1em;
-    border-radius: 4px;
-    background-color: #fff;
-    color: #333;
-    border: 1px solid #333;
-    cursor: pointer;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    height: 28px;
     min-height: unset;
-    box-sizing: border-box;
-    transition: background 0.2s, color 0.2s;
 }
-.copyright-newsletter input[type="submit"]:hover {
-    background-color: #333;
-    color: #fff;
-    border-color: #333;
-}
-
-.copyright-social .social-media li svg {
-    width: 16px !important;
-    height: 16px !important;
-    vertical-align: middle;
-    display: inline-block;
-}
-.copyright-social {
+.footer-links, .newsletter-and-copyright {
+    flex: 1;
     display: flex;
     align-items: center;
-    height: 100%;
+    justify-content: flex-start;
+}
+.copyright-social {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0;
     padding: 0;
-    margin-left: 24px; /* Add left margin for spacing from the edge or other elements */
+    margin-left: 0;
+    height: 100%;
 }
 .copyright-social .social-media {
     display: flex;
     align-items: center;
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 .copyright-social .social-media li {
     margin: 0 6px;
     margin-top: 0;
     display: flex;
     align-items: center;
+    height: 24px;
 }
-.copyright-text {
-    flex: 1;
-    font-size: 1rem;
-    text-align: center;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+.copyright-social .social-media li svg {
+    width: 20px !important;
+    height: 20px !important;
+    vertical-align: middle;
+    display: inline-block;
 }
-
-/* Responsive copyright/newsletter row */
 .newsletter-and-copyright {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 24px;
-    flex: 1;
     justify-content: flex-end;
+    gap: 8px;
+    padding-right: 16px;
+}
+.footer-links {
+    justify-content: flex-start;
+    gap: 12px;
+    margin-right: 0;
+    padding-left: 16px;
+}
+.footer-link {
+    color: var(--footer-link-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1em;
+    transition: none;
+}
+.footer-link:hover {
+    text-decoration: underline;
+    color: var(--footer-link-color);
 }
 @media screen and (max-width: 768px) {
-    .newsletter-and-copyright {
+    .copyright-row {
         flex-direction: column;
         align-items: center;
-        gap: 8px;
-        width: 100%;
+        gap: 20px;
+        padding: 4px 0 0 0;
     }
-    .copyright-newsletter {
+    .footer-links, .newsletter-and-copyright {
         width: 100%;
         justify-content: center;
-        margin-bottom: 0;
+        margin: 0 0 2px 0;
     }
-    .copyright-text {
+    .footer-links {
+        flex-direction: column;
+        gap: 16px;
+    }
+    .copyright-social {
         width: 100%;
-        margin-top: 0;
-        margin-bottom: 0;
-        text-align: center;
-        padding-left: 0;
-        padding-right: 0;
+        justify-content: center;
+        margin-bottom: 2px;
     }
 }
 
-/* Optionally, to equally space all items in the bottom row */
-.copyright-row {
-    justify-content: space-between;
+/* Make sure the footer stays at the bottom */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+#app {
+    flex: 1 0 auto;
+}
+.footer, .copyright-row, .copyright-text {
+    flex-shrink: 0;
+}
+
+.footer-links-row {
+    margin-left: 20px;
+    margin-right: 20px;
 }
