@@ -104,7 +104,7 @@ async function render() {
     // Handle home page with search
     if (path === '/') {
         appDiv.innerHTML = createSearchBox();
-        document.title = 'ARated.com - Find the Best AR Apps';
+        document.title = 'ARated.com - Accelerating Sustainability & Net Zero';
 
         // Add search functionality
         const searchInput = document.getElementById('search-input');
