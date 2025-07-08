@@ -2,6 +2,22 @@
 const navigationMenu = `
     <nav id="nav-menu" class="nav-menu hidden">
         <div class="grid-menu">
+        
+        	<a href="https://hub.arated.com" class="grid-item">
+					<svg class="grid-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					  <circle cx="12" cy="12" r="3"/>
+					  <line x1="12" y1="1" x2="12" y2="7"/>
+					  <line x1="12" y1="17" x2="12" y2="23"/>
+					  <line x1="4.22" y1="4.22" x2="7.76" y2="7.76"/>
+					  <line x1="16.24" y1="16.24" x2="19.78" y2="19.78"/>
+					  <line x1="1" y1="12" x2="7" y2="12"/>
+					  <line x1="17" y1="12" x2="23" y2="12"/>
+					  <line x1="4.22" y1="19.78" x2="7.76" y2="16.24"/>
+					  <line x1="16.24" y1="7.76" x2="19.78" y2="4.22"/>
+					</svg>
+                <span>Pro Hub</span>
+            </a>
+        
             <a href="#/homes" class="grid-item">
                 <svg class="grid-icon" viewBox="0 0 24 24">
                     <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
