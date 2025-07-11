@@ -743,6 +743,7 @@ form[role="search"] button[type="submit"] {
     gap: 12px;
     margin-right: 0;
     padding-left: 16px;
+    align-items: center;
 }
 .footer-link {
     color: var(--footer-link-color);
@@ -766,10 +767,13 @@ form[role="search"] button[type="submit"] {
         width: 100%;
         justify-content: center;
         margin: 0 0 2px 0;
+        align-items: center;
     }
     .footer-links {
-        flex-direction: column;
+        flex-direction: row;
         gap: 16px;
+        justify-content: center;
+        padding-left: 0;
     }
     .copyright-social {
         width: 100%;
@@ -818,9 +822,11 @@ body {
     padding-bottom: 0;
   }
   .grid-menu {
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-template-columns: repeat(3, 1fr) !important;
     gap: 8px;
+  }
+  .footer-links {
+    flex-direction: row;
+    gap: 16px;
   }
 }
