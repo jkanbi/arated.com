@@ -99,7 +99,7 @@
 		/* Grid Menu (Hidden by default) */
 		.nav-menu {
 			position: absolute;
-			top: 50px; /* Adjust based on header height */
+			top: 70px; /* Increased from 50px to 70px for extra spacing */
 			right: 20px;
 			/* background-color: #fff;
 			box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -563,6 +563,12 @@
                 justify-content: center;
                 align-items: center;
             }
+            .nav-menu {
+              top: 70px; /* Ensure extra spacing on mobile as well */
+              left: 50%;
+              right: auto;
+              transform: translateX(-50%);
+            }
         }
 
 /* Post and Page Content Styles */
@@ -788,4 +794,33 @@ body {
 .footer-links-row {
     margin-left: 20px;
     margin-right: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-menu {
+    top: 70px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+  #app {
+    min-height: unset;
+    flex: 0 0 auto;
+  }
+  .footer {
+    position: static;
+    left: unset;
+    bottom: unset;
+    width: 100vw;
+    z-index: unset;
+  }
+  body {
+    padding-bottom: 0;
+  }
+  .grid-menu {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px;
+  }
 }
