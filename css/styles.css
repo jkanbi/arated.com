@@ -53,6 +53,7 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            overflow-x: hidden;
         }
 
         #app {
@@ -762,23 +763,43 @@ form[role="search"] button[type="submit"] {
         align-items: center;
         gap: 20px;
         padding: 4px 0 0 0;
+        justify-content: center;
+        width: 100%;
+        box-sizing: border-box;
     }
     .footer-links, .newsletter-and-copyright {
         width: 100%;
         justify-content: center;
         margin: 0 0 2px 0;
         align-items: center;
+        padding-left: 0;
+        padding-right: 0;
+        box-sizing: border-box;
     }
     .footer-links {
         flex-direction: row;
         gap: 16px;
         justify-content: center;
         padding-left: 0;
+        margin-left: 0;
+        margin-right: 0;
+        flex-wrap: wrap;
+    }
+    .newsletter-and-copyright {
+        justify-content: center;
+        padding-right: 0;
+        flex-wrap: wrap;
     }
     .copyright-social {
         width: 100%;
         justify-content: center;
         margin-bottom: 2px;
+        box-sizing: border-box;
+    }
+    .footer {
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
     }
 }
 
