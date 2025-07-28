@@ -374,7 +374,7 @@
 		
         /* Main footer styles */
         .footer {
-            background-color: var(--footercols-color);
+            background-color: var(--bg-color);
             padding: 8px;
             display: flex;
             justify-content: space-around;
@@ -456,7 +456,7 @@
 
         /* Copyright footer */
         .copyright {
-            background-color: var(--copyright-color);
+            background-color: var(--bg-color);
             color: var(--footer-link-color);
             text-align: center;
             padding: 10px 20px;
@@ -693,7 +693,7 @@ form[role="search"] button[type="submit"] {
     justify-content: space-between;
     gap: 0;
     padding: 6px 0 0 0;
-    background-color: var(--copyright-color);
+    background-color: var(--bg-color);
     color: var(--footer-link-color);
     position: static;
     min-height: unset;
