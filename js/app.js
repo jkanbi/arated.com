@@ -46,9 +46,7 @@ United Kingdom
 
 **[+44 020 8123 4411](tel:+4402081234411)**
 
-### 📧 Email Us
 
-For general inquiries: [info@arated.com](mailto:info@arated.com)
 
 ### 🕒 Business Hours
 
@@ -56,11 +54,7 @@ Monday - Friday: 9:00 AM - 6:00 PM
 Saturday: 10:00 AM - 4:00 PM  
 Sunday: Closed
 
-### 🚇 Getting Here
-
-**By Tube:** Nearest station is Colindale (Northern Line)  
-**By Bus:** Routes 204, 303, 324, 326  
-**By Car:** Limited parking available on site`,
+`,
     
     'quicklinks': `# Quicklinks
 

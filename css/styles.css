@@ -817,6 +817,53 @@
     opacity: 0.3;
 }
 
+/* Map container styling */
+.map-container {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.map-container iframe {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.map-container iframe:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.map-container small {
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.map-container small a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.map-container small a:hover {
+    text-decoration: underline;
+}
+
+/* Contact page specific styling */
+.page-content h3 {
+    color: var(--text-color);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.page-content h3::before {
+    font-size: 1.2rem;
+}
+
 .post-content img, .page-content img {
     max-width: 100%;
     height: auto;
