@@ -100,6 +100,8 @@
 			align-items: center;
 			justify-content: space-between;
 			padding: 10px 20px;
+			position: relative;
+			z-index: 999; /* High z-index to maintain menu positioning */
 		}
 		/* 
 		.logo img {
@@ -152,6 +154,7 @@
 			position: absolute;
 			top: 70px; /* Increased from 50px to 70px for extra spacing */
 			right: 20px;
+			z-index: 1000; /* High z-index to ensure it appears above all content */
 			/* background-color: #fff;
 			box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 			padding: 10px;*/
@@ -171,6 +174,7 @@
 		  border-radius: 8px;
 		  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 		  outline: 2px solid #D3D3D3; /* Light Grey */
+		  z-index: 1001; /* Higher than nav-menu to ensure it appears above */
 		}
 		
 		.grid-item {
