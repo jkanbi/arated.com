@@ -127,18 +127,25 @@
 		}
 		
 		.dots-menu:hover {
-			background-color: rgba(0, 0, 0, 0.1);
+			background-color: transparent;
 		}
 		
 		.dots-menu:focus {
-			outline: 2px solid var(--link-color);
-			outline-offset: 2px;
+			outline: none !important;
+			box-shadow: none !important;
+			border: none !important;
+		}
+		
+		.dots-menu:focus-visible {
+			outline: none !important;
+			box-shadow: none !important;
+			border: none !important;
 		}
 		
 		/* Dark mode support for dots menu */
 		@media (prefers-color-scheme: dark) {
 			.dots-menu:hover {
-				background-color: rgba(255, 255, 255, 0.1);
+				background-color: transparent;
 			}
 		}
 		
@@ -147,6 +154,11 @@
 			height: 6px;
 			background-color: #808080; /* Grey color */
 			border-radius: 50%; /* Makes dots circular */
+			transition: background-color 0.2s ease;
+		}
+		
+		.dots-menu:hover .dot {
+			background-color: #606060; /* Slightly darker grey on hover */
 		}
 		
 		/* Grid Menu (Hidden by default) */
