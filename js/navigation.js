@@ -48,12 +48,6 @@ const navigationMenu = `
 				</svg>
                 <span>Renewables</span>
             </a>
-            <a href="#/epc" class="grid-item">
-                <svg class="grid-icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                </svg>
-                <span>EPC</span>
-            </a>
             <a href="https://myboiler.com/?referrer=ARated.com" class="grid-item" target="_blank" rel="noopener">
 				<svg class="grid-icon"
 				   viewBox="0 0 56.926671 83.21725"
