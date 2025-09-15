@@ -11,7 +11,7 @@ const routes = {
     '/privacy-policy': { slug: 'privacy-policy', source: 'wordpress' },
     '/affilate-activity-disclosure': { slug: 'affilate-activity-disclosure', source: 'wordpress' },
     '/club': { slug: 'club', source: 'wordpress' },
-    '/energy': { slug: 'energy', source: 'wordpress' },
+    '/energy': { slug: 'energy', source: 'markdown' },
     '/tesla': { slug: 'tesla', source: 'wordpress' },
     '/finance': { slug: 'finance', source: 'wordpress' },
     '/calculators': { slug: 'calculators', source: 'wordpress' },

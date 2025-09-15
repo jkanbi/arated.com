@@ -35,13 +35,6 @@ const navigationMenu = `
 				</svg>
                 <span>Investments</span>
             </a>
-            <a href="#/energy" class="grid-item">
-<svg class="grid-icon" width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <rect x="20" y="20" width="80" height="80" rx="10" fill="#fcc200" opacity="0.2"/>
-  <path d="M40 30 L70 30 L50 60 L80 60 L40 90" stroke="#fcc200" stroke-width="8" fill="none" stroke-linecap="round"/>
-</svg>
-                <span>Energy</span>
-            </a>
             <a href="https://myboiler.com/?referrer=ARated.com" class="grid-item" target="_blank" rel="noopener">
 				<svg class="grid-icon"
 				   viewBox="0 0 56.926671 83.21725"
