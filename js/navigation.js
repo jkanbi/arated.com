@@ -24,17 +24,6 @@ const navigationMenu = `
                 </svg>
                 <span>Homes</span>
             </a>
-            <a href="#/investments" class="grid-item">
-				<svg class="grid-icon" width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-				  <rect x="20" y="20" width="80" height="80" rx="10" fill="#0066cc" opacity="0.2"/>
-				  <path d="M30,90 L50,50 L70,70 L90,30" stroke="#0066cc" stroke-width="8" fill="none" stroke-linecap="round"/>
-				  <circle cx="30" cy="90" r="5" fill="#0066cc"/>
-				  <circle cx="50" cy="50" r="5" fill="#0066cc"/>
-				  <circle cx="70" cy="70" r="5" fill="#0066cc"/>
-				  <circle cx="90" cy="30" r="5" fill="#0066cc"/>
-				</svg>
-                <span>Investments</span>
-            </a>
             <a href="https://myboiler.com/?referrer=ARated.com" class="grid-item" target="_blank" rel="noopener">
 				<svg class="grid-icon"
 				   viewBox="0 0 56.926671 83.21725"
