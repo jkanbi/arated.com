@@ -2,6 +2,7 @@
 
 - [Club](#/club)
 - [Energy](#/energy)
+- [Renewables](#/renewables)
 - [Tesla](#/tesla)
 - [Finance](#/finance)
 - [Calculators](#/calculators)
