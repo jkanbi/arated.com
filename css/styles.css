@@ -804,6 +804,14 @@
                 display: block !important;
             }
             
+            /* Ensure tagline doesn't touch hamburger menu */
+            .tagline {
+                max-width: calc(100vw - 100px);
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            
             .hamburger-menu {
                 display: flex !important;
             }
@@ -816,6 +824,9 @@
                 margin-left: 20px;
                 font-size: 16px;
                 white-space: nowrap;
+                max-width: calc(100vw - 120px);
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
 
 				
@@ -1245,6 +1256,12 @@ form[role="search"] button[type="submit"] {
 @media (max-width: 600px) {
   .tagline-break {
     display: block;
+  }
+  
+  /* Extra small screens - more space for hamburger */
+  .tagline {
+    max-width: calc(100vw - 80px);
+    font-size: 14px;
   }
 }
 
