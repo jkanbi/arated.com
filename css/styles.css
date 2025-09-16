@@ -102,6 +102,7 @@
 			padding: 10px 20px;
 			position: relative;
 			z-index: 999; /* High z-index to maintain menu positioning */
+			flex-wrap: wrap;
 		}
 		/* 
 		.logo img {
@@ -113,112 +114,248 @@
 			color: #555;
 		}
 		
-		/* 9-Dots Menu */
-		.dots-menu {
-			display: grid;
-			grid-template-columns: repeat(3, 6px);
-			gap: 4px;
+		/* Desktop Navigation */
+		.desktop-nav {
+			display: flex;
+			align-items: center;
+			gap: 24px;
+		}
+		
+		.nav-item {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			padding: 8px 12px;
+			text-decoration: none;
+			color: var(--text-color);
+			border-radius: 6px;
+			transition: all 0.2s ease;
+			font-weight: 500;
+		}
+		
+		.nav-item:hover {
+			background-color: var(--card-bg);
+			color: var(--link-color);
+		}
+		
+		.nav-text {
+			font-size: 14px;
+			white-space: nowrap;
+		}
+		
+		.nav-icon {
+			width: 16px;
+			height: 16px;
+			fill: currentColor;
+			flex-shrink: 0;
+		}
+		
+		/* Mobile Navigation */
+		.mobile-nav {
+			display: none;
+			position: relative;
+			z-index: 10002; /* Higher than mobile-nav-menu */
+		}
+		
+		/* Show mobile nav on mobile screens and when window is resized */
+		@media screen and (max-width: 768px) {
+			.mobile-nav {
+				display: block !important;
+			}
+			.desktop-nav {
+				display: none !important;
+			}
+		}
+		
+		/* Mobile Navigation Menu */
+		.mobile-nav-menu {
+			position: fixed;
+			top: 60px;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 9998;
+			background-color: rgba(0, 0, 0, 0.85);
+			backdrop-filter: blur(20px);
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+			transform: translateY(-100%);
+			transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+			padding-top: 20px;
+			min-height: calc(100vh - 60px);
+			display: block;
+			overflow-y: auto;
+		}
+		
+		/* Mobile menu backdrop */
+		.mobile-nav-menu::before {
+			content: '';
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0, 0, 0, 0.5);
+			z-index: -1;
+			opacity: 0;
+			transition: opacity 0.3s ease;
+		}
+		
+		.mobile-nav-menu.hidden {
+			transform: translateY(-100%);
+		}
+		
+		.mobile-nav-menu:not(.hidden) {
+			transform: translateY(0);
+		}
+		
+		
+		.mobile-nav-menu:not(.hidden)::before {
+			opacity: 1;
+		}
+		
+		/* Prevent body scroll when menu is open */
+		body.menu-open {
+			overflow: hidden;
+		}
+		
+		.mobile-menu-items {
+			padding: 0 20px 20px 20px;
+			display: flex;
+			flex-direction: column;
+		}
+		
+		.mobile-nav-item {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 16px 0;
+			text-decoration: none;
+			color: #ffffff;
+			border-bottom: none;
+			transition: all 0.2s ease;
+			font-weight: 600;
+			font-size: 17px;
+		}
+		
+		.mobile-nav-item:last-child {
+			border-bottom: none;
+		}
+		
+		.mobile-nav-item:hover {
+			background-color: rgba(255, 255, 255, 0.1);
+			color: #ffffff;
+		}
+		
+		.mobile-nav-item:active {
+			background-color: rgba(255, 255, 255, 0.2);
+		}
+		
+		.mobile-nav-text {
+			font-size: 17px;
+			font-weight: 600;
+		}
+		
+		.mobile-nav-icon {
+			width: 20px;
+			height: 20px;
+			fill: #ffffff !important;
+			flex-shrink: 0;
+		}
+		
+		/* Force MyBoiler icon to be white */
+		.mobile-nav-icon path {
+			fill: #ffffff !important;
+		}
+		
+		/* Hamburger Menu */
+		.hamburger-menu {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			width: 30px;
+			height: 30px;
 			cursor: pointer;
 			background: transparent;
 			border: none;
-			padding: 8px;
-			border-radius: 4px;
-			transition: background-color 0.2s ease;
+			padding: 0;
+			position: relative;
+			z-index: 10003;
+			transition: all 0.3s ease;
 		}
 		
-		.dots-menu:hover {
+		.hamburger-menu:hover {
 			background-color: transparent;
 		}
 		
-		.dots-menu:focus {
+		.hamburger-menu:focus {
 			outline: none !important;
 			box-shadow: none !important;
 			border: none !important;
 		}
 		
-		.dots-menu:focus-visible {
+		.hamburger-menu:focus-visible {
 			outline: none !important;
 			box-shadow: none !important;
 			border: none !important;
 		}
 		
-		/* Dark mode support for dots menu */
+		.hamburger-line {
+			width: 20px;
+			height: 2px;
+			background-color: #333;
+			margin: 3px 0;
+			transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+			transform-origin: center;
+			position: relative;
+			border-radius: 1px;
+		}
+		
+		.hamburger-menu:hover .hamburger-line {
+			background-color: #666;
+		}
+		
+		/* X state styling */
+		.hamburger-menu.menu-open .hamburger-line {
+			background-color: #007AFF;
+		}
+		
+		.hamburger-menu.menu-open:hover .hamburger-line {
+			background-color: #0056CC;
+		}
+		
+		/* Dark mode support for hamburger menu */
 		@media (prefers-color-scheme: dark) {
-			.dots-menu:hover {
+			.hamburger-menu:hover {
 				background-color: transparent;
 			}
 		}
 		
-		.dot {
-			width: 6px;
-			height: 6px;
-			background-color: #808080; /* Grey color */
-			border-radius: 50%; /* Makes dots circular */
-			transition: background-color 0.2s ease;
+		/* Transform to X when menu is open */
+		.hamburger-menu.menu-open .hamburger-line:first-child {
+			transform: rotate(45deg) translate(0, 3px);
 		}
 		
-		.dots-menu:hover .dot {
-			background-color: #606060; /* Slightly darker grey on hover */
+		.hamburger-menu.menu-open .hamburger-line:last-child {
+			transform: rotate(-45deg) translate(2px, -6px);
 		}
 		
-		/* Grid Menu (Hidden by default) */
-		.nav-menu {
-			position: absolute;
-			top: 70px; /* Increased from 50px to 70px for extra spacing */
-			right: 20px;
-			z-index: 1000; /* High z-index to ensure it appears above all content */
-			/* background-color: #fff;
-			box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-			padding: 10px;*/
-			border-radius: 4px; /* Optional for a rounded dropdown */
+		/* Smooth transition for X transformation */
+		.hamburger-menu.menu-open .hamburger-line {
+			transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 		}
 		
-		.nav-menu.hidden {
-			display: none; /* Hides the menu by default */
+		/* Ensure hamburger menu is visible on mobile */
+		@media screen and (max-width: 768px) {
+			.hamburger-menu {
+				display: flex !important;
+			}
 		}
 		
-		.grid-menu {
-		  display: grid;
-		  grid-template-columns: repeat(3, 1fr);
-		  gap: 16px;
-		  padding: 16px;
-		  background-color: var(--bg-color);
-		  border-radius: 8px;
-		  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-		  outline: 2px solid #D3D3D3; /* Light Grey */
-		  z-index: 1001; /* Higher than nav-menu to ensure it appears above */
-		}
-		
-		.grid-item {
-		  display: flex;
-		  flex-direction: column;
-		  align-items: center;
-		  text-decoration: none;
-		  color: var(--text-color);  /* Default text color */
-		  padding: 16px;
-		  border-radius: 8px;
-		  transition: background-color 0.3s;
-		}
-		
-		.grid-item:hover {
-		  background-color: #f1f3f4;
-		}
-		
-		.grid-icon {
-		  width: 24px;
-		  height: 24px;
-		  margin-bottom: 8px;
-		  fill: currentColor;
-		  fill: #006400; /* Dark Green */
-		}
-		
-		.grid-item span {
-		  font-size: 14px;
-		  text-align: center;
-		}
+		/* Old grid menu styles removed - using new mobile navigation */
 		
 		/* Consistency Across Devices */
-		button, .dots-menu {
+		button, .hamburger-menu {
 			border-radius: 0; /* Removes rounded corners for consistency */
 		}
 		
@@ -574,11 +711,44 @@
             padding: 10px 20px;
         }  
 
-        @media screen and (max-width: 768px) {
+        /* Responsive Breakpoints */
+        @media screen and (max-width: 1024px) {
+            .desktop-nav {
+                gap: 16px;
+            }
+            
+            .nav-item {
+                padding: 6px 10px;
+            }
+            
+            .nav-text {
+                font-size: 13px;
+            }
+        }
         
-       		.tagline {
-				margin-left: 20px;
-			}
+        @media screen and (max-width: 768px) {
+            /* Hide desktop navigation on mobile */
+            .desktop-nav {
+                display: none !important;
+            }
+            
+            /* Show mobile navigation */
+            .mobile-nav {
+                display: block !important;
+            }
+            
+            .hamburger-menu {
+                display: flex !important;
+            }
+            
+            .header {
+                flex-wrap: nowrap;
+            }
+            
+            .tagline {
+                margin-left: 20px;
+                font-size: 16px;
+            }
 
 				
 			/* Search Container */
@@ -682,12 +852,7 @@
                 justify-content: center;
                 align-items: center;
             }
-            .nav-menu {
-              top: 70px; /* Ensure extra spacing on mobile as well */
-              left: 50%;
-              right: auto;
-              transform: translateX(-50%);
-            }
+            /* Mobile menu uses fixed positioning */
         }
 
 /* Post and Page Content Styles */
@@ -1172,10 +1337,7 @@ form[role="search"] button[type="submit"] {
   body {
     padding-bottom: 0;
   }
-  .grid-menu {
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 8px;
-  }
+  /* Grid menu removed - using new mobile navigation */
   .footer-links {
     flex-direction: row;
     gap: 16px;
