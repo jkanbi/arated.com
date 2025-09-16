@@ -218,6 +218,35 @@
 			overflow: hidden;
 		}
 		
+		/* Header styling when menu is open - Mobile only */
+		@media screen and (max-width: 768px) {
+			/* Header background when menu is open */
+			body.menu-open .header {
+				background-color: rgba(0, 0, 0, 0.85) !important;
+				backdrop-filter: blur(20px);
+				background-image: none !important;
+			}
+			
+			/* Logo swap when menu is open */
+			body.menu-open .light-mode-logo {
+				display: none;
+			}
+			
+			body.menu-open .dark-mode-logo {
+				display: block;
+			}
+			
+			/* Header text visibility when menu is open */
+			body.menu-open .tagline {
+				color: #ffffff;
+			}
+		}
+		
+		/* Default logo display */
+		.dark-mode-logo {
+			display: none;
+		}
+		
 		.mobile-menu-items {
 			padding: 0 20px 20px 20px;
 			display: flex;
@@ -317,11 +346,11 @@
 		
 		/* X state styling */
 		.hamburger-menu.menu-open .hamburger-line {
-			background-color: #007AFF;
+			background-color: #ffffff;
 		}
 		
 		.hamburger-menu.menu-open:hover .hamburger-line {
-			background-color: #0056CC;
+			background-color: #ffffff;
 		}
 		
 		/* Dark mode support for hamburger menu */
