@@ -112,13 +112,24 @@
 			flex-shrink: 0;
 		}
 		
-		/* Logo display rules */
+		/* Logo display rules - default light mode */
 		.light-mode-logo {
 			display: block !important;
 		}
 		
 		.dark-mode-logo {
 			display: none !important;
+		}
+		
+		/* Dark mode logo display */
+		@media (prefers-color-scheme: dark) {
+			.light-mode-logo {
+				display: none !important;
+			}
+			
+			.dark-mode-logo {
+				display: block !important;
+			}
 		}
 		
 
