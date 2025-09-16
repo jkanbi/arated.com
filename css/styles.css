@@ -102,16 +102,56 @@
 			padding: 10px 20px;
 			position: relative;
 			z-index: 999; /* High z-index to maintain menu positioning */
-			flex-wrap: wrap;
+			flex-wrap: nowrap;
+			min-width: 0;
 		}
-		/* 
-		.logo img {
-			display: block;
-		} */
+		/* Logo styling */
+		.logo {
+			display: flex;
+			align-items: center;
+			flex-shrink: 0;
+		}
+		
+		/* Logo display rules */
+		.light-mode-logo {
+			display: block !important;
+		}
+		
+		.dark-mode-logo {
+			display: none !important;
+		}
+		
 
+		/* Tagline Container */
+		.tagline-container {
+			position: relative;
+			height: 50px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex: 1;
+			min-width: 0;
+			max-width: 400px;
+		}
+		
 		.tagline {
 			font-size: 18px;
+			font-weight: 300;
 			color: #555;
+			text-align: center;
+			margin: 0;
+			line-height: 1.4;
+			position: absolute;
+			opacity: 0;
+			transition: opacity 1s ease-in-out;
+			width: 100%;
+			white-space: nowrap;
+			left: 0;
+			right: 0;
+		}
+		
+		.tagline.active {
+			opacity: 1;
 		}
 		
 		/* Desktop Navigation */
@@ -119,6 +159,7 @@
 			display: flex;
 			align-items: center;
 			gap: 24px;
+			flex-shrink: 0;
 		}
 		
 		.nav-item {
@@ -139,7 +180,8 @@
 		}
 		
 		.nav-text {
-			font-size: 14px;
+			font-size: 18px;
+			font-weight: 300;
 			white-space: nowrap;
 		}
 		
@@ -229,11 +271,11 @@
 			
 			/* Logo swap when menu is open */
 			body.menu-open .light-mode-logo {
-				display: none;
+				display: none !important;
 			}
 			
 			body.menu-open .dark-mode-logo {
-				display: block;
+				display: block !important;
 			}
 			
 			/* Header text visibility when menu is open */
@@ -242,10 +284,6 @@
 			}
 		}
 		
-		/* Default logo display */
-		.dark-mode-logo {
-			display: none;
-		}
 		
 		.mobile-menu-items {
 			padding: 0 20px 20px 20px;
@@ -751,7 +789,7 @@
             }
             
             .nav-text {
-                font-size: 13px;
+                font-size: 16px;
             }
         }
         
@@ -777,6 +815,7 @@
             .tagline {
                 margin-left: 20px;
                 font-size: 16px;
+                white-space: nowrap;
             }
 
 				

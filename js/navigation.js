@@ -198,11 +198,41 @@ function setupMenuClickHandlers() {
     }
 }
 
+// Tagline rotation functionality
+function initializeTaglineRotation() {
+    const taglines = document.querySelectorAll('.tagline');
+    let currentIndex = 0;
+    
+    if (taglines.length === 0) return;
+    
+    // Hide all taglines except the first one
+    taglines.forEach((tagline, index) => {
+        if (index === 0) {
+            tagline.classList.add('active');
+        } else {
+            tagline.classList.remove('active');
+        }
+    });
+    
+    // Rotate taglines every 10 seconds
+    setInterval(() => {
+        // Remove active class from current tagline
+        taglines[currentIndex].classList.remove('active');
+        
+        // Move to next tagline
+        currentIndex = (currentIndex + 1) % taglines.length;
+        
+        // Add active class to new tagline
+        taglines[currentIndex].classList.add('active');
+    }, 10000); // 10 seconds
+}
+
 // Initialize navigation when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded, initializing navigation...');
     initializeNavigation();
     setupMenuClickHandlers();
+    initializeTaglineRotation();
     console.log('Navigation initialized');
 });
 
