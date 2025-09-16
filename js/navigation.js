@@ -16,12 +16,6 @@ const mobileNavigationMenu = `
                     <line x1="16.24" y1="7.76" x2="19.78" y2="4.22"/>
                 </svg>
             </a>
-            <a href="#/homes" class="mobile-nav-item">
-                <span class="mobile-nav-text">Homes</span>
-                <svg class="mobile-nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                </svg>
-            </a>
             <a href="https://myboiler.com/?referrer=ARated.com" class="mobile-nav-item" target="_blank" rel="noopener">
                 <span class="mobile-nav-text">MyBoiler</span>
                 <svg class="mobile-nav-icon" viewBox="0 0 56.926671 83.21725" height="18.725769" width="12.596496" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
