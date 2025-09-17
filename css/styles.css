@@ -119,6 +119,8 @@
 			display: flex;
 			align-items: center;
 			flex-shrink: 0;
+			z-index: 2;
+			position: relative;
 		}
 		
 		/* Logo display rules - default light mode */
@@ -144,14 +146,16 @@
 
 		/* Tagline Container */
 		.tagline-container {
-			position: relative;
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
 			height: 50px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			flex: 1;
-			min-width: 0;
-			max-width: 400px;
+			width: 100%;
+			max-width: 1200px;
+			z-index: 1;
 		}
 		
 		.tagline {
@@ -180,6 +184,8 @@
 			align-items: center;
 			gap: 24px;
 			flex-shrink: 0;
+			z-index: 2;
+			position: relative;
 		}
 		
 		.nav-item {
@@ -863,8 +869,15 @@
             }
             
             /* Ensure tagline doesn't touch hamburger menu */
+            .tagline-container {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                width: calc(100vw - 100px);
+                max-width: 1200px;
+            }
+            
             .tagline {
-                max-width: calc(100vw - 100px);
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -879,12 +892,7 @@
             }
             
             .tagline {
-                margin-left: 20px;
                 font-size: 16px;
-                white-space: nowrap;
-                max-width: calc(100vw - 120px);
-                overflow: hidden;
-                text-overflow: ellipsis;
             }
 
 				
@@ -1317,8 +1325,11 @@ form[role="search"] button[type="submit"] {
   }
   
   /* Extra small screens - more space for hamburger */
+  .tagline-container {
+    width: calc(100vw - 80px);
+  }
+  
   .tagline {
-    max-width: calc(100vw - 80px);
     font-size: 14px;
   }
 }
