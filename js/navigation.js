@@ -208,17 +208,25 @@ function initializeTaglineRotation() {
         }
     });
     
-    // Rotate taglines every 10 seconds
-    setInterval(() => {
-        // Remove active class from current tagline
-        taglines[currentIndex].classList.remove('active');
+    // Start rotation after 4 seconds and add transition class
+    setTimeout(() => {
+        // Add transition class to all taglines for smooth transitions
+        taglines.forEach(tagline => {
+            tagline.classList.add('transition');
+        });
         
-        // Move to next tagline
-        currentIndex = (currentIndex + 1) % taglines.length;
-        
-        // Add active class to new tagline
-        taglines[currentIndex].classList.add('active');
-    }, 10000); // 10 seconds
+        // Start rotating taglines every 4 seconds
+        setInterval(() => {
+            // Remove active class from current tagline
+            taglines[currentIndex].classList.remove('active');
+            
+            // Move to next tagline
+            currentIndex = (currentIndex + 1) % taglines.length;
+            
+            // Add active class to new tagline
+            taglines[currentIndex].classList.add('active');
+        }, 4000); // 4 seconds
+    }, 4000); // Wait 4 seconds before starting rotation
 }
 
 // Initialize navigation when DOM is loaded
