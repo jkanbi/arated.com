@@ -1,0 +1,16 @@
+{
+  "name": "arated.com",
+  "version": "1.0.0",
+  "description": "ARated.com - Accelerating Sustainability & Net Zero",
+  "scripts": {
+    "dev": "npx live-server --port=8080 --open=/",
+    "start": "npx live-server --port=8080"
+  },
+  "keywords": [
+    "sustainability",
+    "net zero",
+    "energy efficiency"
+  ],
+  "author": "",
+  "license": "ISC"
+}
