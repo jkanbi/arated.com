@@ -24,6 +24,8 @@ We provide information and support for home electric vehicle charging solutions.
 
 Our team assists with assessing your home's suitability for renewable technologies, calculating potential savings and payback periods, navigating grants and incentives, connecting you with certified installers, and planning integrated renewable energy systems.
 
-[Get in Touch](#/contact-us) to discuss your renewable energy needs.
+<div style="text-align: center; margin: 2em 0;">
+    <a href="#/renewables-enquiry" style="display: inline-block; padding: 1em 2em; background-color: #000; color: white; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 1.1em; transition: background-color 0.3s; width: auto;">Make Enquiry</a>
+</div>
 
 <img src="img/mcs-aphc-logo.png" alt="Certified Installer - MCS and APHC Certified" style="max-width: 250px; width: 100%; height: auto; margin-top: 2em;">

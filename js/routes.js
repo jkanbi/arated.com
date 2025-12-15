@@ -18,6 +18,7 @@ const routes = {
     '/misc': { slug: 'misc', source: 'wordpress' },
     '/test-page': { slug: 'test-page', source: 'markdown' },
     '/renewables': { slug: 'renewables', source: 'markdown' },
+    '/renewables-enquiry': { slug: 'renewables-enquiry', source: 'html' },
     '/epc-checklist': { slug: 'epc-checklist', source: 'markdown' },
     '/contact-us': { slug: 'contact-us', source: 'markdown' },
     '/quicklinks': { slug: 'quicklinks', source: 'markdown' }

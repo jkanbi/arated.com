@@ -172,6 +172,20 @@ async function loadMarkdownContent(slug) {
     throw new Error(`Markdown content not found for: ${slug}`);
 }
 
+// Function to load HTML content
+async function loadHtmlContent(slug) {
+    try {
+        const response = await fetch(`/pages/${slug}.html`);
+        if (response.ok) {
+            return await response.text();
+        }
+        throw new Error(`HTML file not found: ${slug}.html`);
+    } catch (error) {
+        console.error('Error loading HTML:', error);
+        throw error;
+    }
+}
+
 // Enhanced render function with better error handling and loading states
 async function render() {
     const path = location.hash.replace('#', '') || '/';
@@ -303,6 +317,11 @@ async function render() {
             // Load markdown content with fallback
             try {
                 const markdown = await loadMarkdownContent(route.slug);
+                // Configure marked to allow HTML
+                marked.setOptions({
+                    breaks: true,
+                    gfm: true
+                });
                 // Convert markdown to HTML
                 const html = marked.parse(markdown);
                 appDiv.innerHTML = `
@@ -310,9 +329,26 @@ async function render() {
                         <div class="page-content">${html}</div>
                     </article>
                 `;
+                
                 document.title = route.slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') + ' - ARated.com';
             } catch (error) {
                 console.error('Error loading markdown:', error);
+                appDiv.innerHTML = `<div class="error-message"><h1>Error loading page</h1><p>${error.message}</p></div>`;
+                document.title = 'Error - ARated.com';
+            }
+        } else if (route.source === 'html') {
+            // Load HTML content
+            try {
+                const html = await loadHtmlContent(route.slug);
+                appDiv.innerHTML = `
+                    <article class="page">
+                        <div class="page-content">${html}</div>
+                    </article>
+                `;
+                
+                document.title = route.slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') + ' - ARated.com';
+            } catch (error) {
+                console.error('Error loading HTML:', error);
                 appDiv.innerHTML = `<div class="error-message"><h1>Error loading page</h1><p>${error.message}</p></div>`;
                 document.title = 'Error - ARated.com';
             }
