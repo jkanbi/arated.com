@@ -144,7 +144,7 @@
     <div style="background-color: #fefefe; margin: 15% auto; padding: 2em; border: 1px solid #888; border-radius: 8px; width: 90%; max-width: 500px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); box-sizing: border-box;">
         <h2 style="margin-top: 0; color: #007bff;">Thank You!</h2>
         <p style="font-size: 1.1em; margin-bottom: 1.5em;">Thanks for getting in touch. We'll get back to you soon with expert guidance tailored to your needs.</p>
-        <button id="closeModalBtn" style="padding: 0.75em 2em; background-color: #000; color: white; border: none; border-radius: 4px; font-size: 1em; font-weight: 600; cursor: pointer; transition: background-color 0.3s; width: auto; max-width: 100%;">Close</button>
+        <button type="button" id="closeModalBtn" style="padding: 0.75em 2em; background-color: #000; color: white; border: none; border-radius: 4px; font-size: 1em; font-weight: 600; cursor: pointer; transition: background-color 0.3s; width: auto; max-width: 100%;">Close</button>
     </div>
 </div>
 
@@ -175,87 +175,122 @@
 
 <script>
 (function() {
-    const form = document.querySelector('form');
-    const modal = document.getElementById('thankYouModal');
-    const closeBtn = document.getElementById('closeModalBtn');
-    
-    // Function to get URL parameters (works with both hash and regular URLs)
-    function getUrlParameter(name) {
-        // Check hash-based query params (for SPA routing)
-        const hash = window.location.hash;
-        const hashParams = new URLSearchParams(hash.split('?')[1] || '');
-        if (hashParams.has(name)) {
-            return hashParams.get(name);
+    // Wait for DOM to be ready
+    function initModal() {
+        const form = document.querySelector('form');
+        const modal = document.getElementById('thankYouModal');
+        const closeBtn = document.getElementById('closeModalBtn');
+        
+        if (!modal) {
+            console.error('Modal element not found');
+            return;
         }
         
-        // Check regular query params
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(name);
-    }
-    
-    // Function to remove URL parameter
-    function removeUrlParameter(name) {
-        // Remove from hash
-        const hash = window.location.hash;
-        if (hash.includes('?')) {
-            const [path, query] = hash.split('?');
-            const params = new URLSearchParams(query);
-            params.delete(name);
-            const newQuery = params.toString();
-            const newHash = newQuery ? path + '?' + newQuery : path;
-            window.history.replaceState(null, '', '#' + newHash);
+        // Function to get URL parameters (works with both hash and regular URLs)
+        function getUrlParameter(name) {
+            // Check hash-based query params (for SPA routing)
+            const hash = window.location.hash;
+            if (hash.includes('?')) {
+                const hashParams = new URLSearchParams(hash.split('?')[1] || '');
+                if (hashParams.has(name)) {
+                    return hashParams.get(name);
+                }
+            }
+            
+            // Check regular query params
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
         }
         
-        // Remove from regular query
-        const url = new URL(window.location);
-        url.searchParams.delete(name);
-        window.history.replaceState(null, '', url.pathname + url.search + url.hash);
-    }
-    
-    // Check if we should show the modal (from callback URL)
-    function checkForCallback() {
-        const submitted = getUrlParameter('submitted');
-        const success = getUrlParameter('success');
+        // Function to remove URL parameter
+        function removeUrlParameter(name) {
+            // Remove from hash
+            const hash = window.location.hash;
+            if (hash.includes('?')) {
+                const [path, query] = hash.split('?');
+                const params = new URLSearchParams(query);
+                params.delete(name);
+                const newQuery = params.toString();
+                const newHash = newQuery ? path + '?' + newQuery : path;
+                window.history.replaceState(null, '', '#' + newHash);
+            }
+            
+            // Remove from regular query
+            const url = new URL(window.location);
+            url.searchParams.delete(name);
+            window.history.replaceState(null, '', url.pathname + url.search + url.hash);
+        }
         
-        if (submitted === 'true' || success === 'true') {
-            modal.style.display = 'block';
-            // Clean up URL parameters
-            removeUrlParameter('submitted');
-            removeUrlParameter('success');
-            // Reset form if it exists
-            if (form) {
-                form.reset();
+        // Check if we should show the modal (from callback URL)
+        function checkForCallback() {
+            const submitted = getUrlParameter('submitted');
+            const success = getUrlParameter('success');
+            
+            console.log('Checking for callback - submitted:', submitted, 'success:', success);
+            
+            if (submitted === 'true' || success === 'true') {
+                console.log('Showing modal');
+                modal.style.display = 'block';
+                // Clean up URL parameters
+                removeUrlParameter('submitted');
+                removeUrlParameter('success');
+                // Reset form if it exists
+                if (form) {
+                    form.reset();
+                }
             }
         }
-    }
-    
-    // Check on page load
-    checkForCallback();
-    
-    // Also check when hash changes (for SPA navigation)
-    window.addEventListener('hashchange', checkForCallback);
-    
-    // Close modal when clicking the close button
-    if (closeBtn) {
-        closeBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
-        });
-    }
-    
-    // Close modal when clicking outside of it
-    if (modal) {
-        window.addEventListener('click', function(event) {
-            if (event.target === modal) {
+        
+        // Check on initialization
+        checkForCallback();
+        
+        // Also check when hash changes (for SPA navigation)
+        window.addEventListener('hashchange', checkForCallback);
+        
+        // Close modal when clicking the close button
+        if (closeBtn) {
+            // Remove existing listeners by replacing the button
+            const newCloseBtn = closeBtn.cloneNode(true);
+            closeBtn.parentNode.replaceChild(newCloseBtn, closeBtn);
+            
+            newCloseBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                if (modal) {
+                    modal.style.display = 'none';
+                }
+                return false;
+            });
+        }
+        
+        // Close modal when clicking outside of it
+        if (modal) {
+            modal.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+        
+        // Close modal with Escape key
+        const escapeHandler = function(event) {
+            if (event.key === 'Escape' && modal && modal.style.display === 'block') {
                 modal.style.display = 'none';
             }
-        });
+        };
+        document.addEventListener('keydown', escapeHandler);
     }
     
-    // Close modal with Escape key
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape' && modal.style.display === 'block') {
-            modal.style.display = 'none';
-        }
-    });
+    // Try to initialize immediately
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initModal);
+    } else {
+        // DOM is already ready, but wait a bit for dynamic content to load
+        setTimeout(initModal, 100);
+    }
+    
+    // Also try after a short delay in case content is loaded dynamically
+    setTimeout(initModal, 500);
 })();
 </script>

@@ -186,6 +186,95 @@ async function loadHtmlContent(slug) {
     }
 }
 
+// Function to check for callback parameters and show modal
+function checkRenewablesEnquiryCallback() {
+    // Get URL parameters from hash
+    function getUrlParameter(name) {
+        const hash = window.location.hash;
+        if (hash.includes('?')) {
+            const hashParams = new URLSearchParams(hash.split('?')[1] || '');
+            if (hashParams.has(name)) {
+                return hashParams.get(name);
+            }
+        }
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
+    
+    // Remove URL parameter from hash
+    function removeUrlParameter(name) {
+        const hash = window.location.hash;
+        if (hash.includes('?')) {
+            const [path, query] = hash.split('?');
+            const params = new URLSearchParams(query);
+            params.delete(name);
+            const newQuery = params.toString();
+            // Ensure path doesn't already start with #
+            const cleanPath = path.startsWith('#') ? path.substring(1) : path;
+            const newHash = newQuery ? cleanPath + '?' + newQuery : cleanPath;
+            window.history.replaceState(null, '', '#' + newHash);
+        }
+    }
+    
+    const submitted = getUrlParameter('submitted');
+    const success = getUrlParameter('success');
+    
+    console.log('Checking callback - submitted:', submitted, 'success:', success);
+    
+    const modal = document.getElementById('thankYouModal');
+    const closeBtn = document.getElementById('closeModalBtn');
+    const form = document.querySelector('.enquiry-form');
+    
+    // Set up close button functionality
+    if (closeBtn) {
+        // Remove any existing listeners by cloning and replacing
+        const newCloseBtn = closeBtn.cloneNode(true);
+        closeBtn.parentNode.replaceChild(newCloseBtn, closeBtn);
+        
+        newCloseBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            if (modal) {
+                modal.style.display = 'none';
+            }
+            return false;
+        });
+    }
+    
+    // Close modal when clicking outside
+    if (modal) {
+        modal.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && modal.style.display === 'block') {
+                modal.style.display = 'none';
+            }
+        });
+    }
+    
+    if (submitted === 'true' || success === 'true') {
+        if (modal) {
+            console.log('Showing modal');
+            modal.style.display = 'block';
+            // Clean up URL parameters
+            removeUrlParameter('submitted');
+            removeUrlParameter('success');
+            // Reset form if it exists
+            if (form) {
+                form.reset();
+            }
+        } else {
+            console.error('Modal element not found');
+        }
+    }
+}
+
 // Enhanced render function with better error handling and loading states
 async function render() {
     // Extract path from hash, removing query parameters for route matching
@@ -352,6 +441,13 @@ async function render() {
                 `;
                 
                 document.title = route.slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') + ' - ARated.com';
+                
+                // Check for callback parameters after HTML is loaded (for renewables-enquiry)
+                if (route.slug === 'renewables-enquiry') {
+                    setTimeout(() => {
+                        checkRenewablesEnquiryCallback();
+                    }, 100);
+                }
             } catch (error) {
                 console.error('Error loading HTML:', error);
                 appDiv.innerHTML = `<div class="error-message"><h1>Error loading page</h1><p>${error.message}</p></div>`;
