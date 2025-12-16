@@ -188,7 +188,12 @@ async function loadHtmlContent(slug) {
 
 // Enhanced render function with better error handling and loading states
 async function render() {
-    const path = location.hash.replace('#', '') || '/';
+    // Extract path from hash, removing query parameters for route matching
+    let path = location.hash.replace('#', '') || '/';
+    // Strip query parameters from path for route matching
+    if (path.includes('?')) {
+        path = path.split('?')[0];
+    }
     const appDiv = document.getElementById('app');
 
     // Show loading state
