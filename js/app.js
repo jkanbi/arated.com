@@ -1,4 +1,4 @@
-const WP_API_BASE = 'https://hub.arated.com/wp-json/wp/v2/';
+const WP_API_BASE = 'https://hub.myboiler.com/wp-json/wp/v2/';
 
 // Embedded markdown content for local file access
 const embeddedMarkdown = {
