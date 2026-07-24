@@ -54,6 +54,9 @@ Monday - Friday: 9:00 AM - 6:00 PM
 Saturday: 10:00 AM - 4:00 PM  
 Sunday: Closed
 
+### Send Us a Message
+
+<div class="hs-form-frame" data-region="eu1" data-form-id="d74f9643-89c4-4f18-a3dc-6e26f5b369ce" data-portal-id="148934146"></div>
 `,
     
     'quicklinks': `# Quicklinks
@@ -184,6 +187,25 @@ async function loadHtmlContent(slug) {
         console.error('Error loading HTML:', error);
         throw error;
     }
+}
+
+// HubSpot embed scripts do not run when injected via innerHTML; load them explicitly
+const HUBSPOT_CONTACT_FORM_SCRIPT = 'https://js-eu1.hsforms.net/forms/embed/148934146.js';
+
+function loadHubSpotContactForm() {
+    if (!document.querySelector('.hs-form-frame')) {
+        return;
+    }
+
+    const existing = document.querySelector(`script[src="${HUBSPOT_CONTACT_FORM_SCRIPT}"]`);
+    if (existing) {
+        existing.remove();
+    }
+
+    const script = document.createElement('script');
+    script.src = HUBSPOT_CONTACT_FORM_SCRIPT;
+    script.defer = true;
+    document.body.appendChild(script);
 }
 
 // Function to check for callback parameters and show modal
@@ -425,6 +447,10 @@ async function render() {
                 `;
                 
                 document.title = route.slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') + ' - ARated.com';
+
+                if (route.slug === 'contact-us') {
+                    loadHubSpotContactForm();
+                }
             } catch (error) {
                 console.error('Error loading markdown:', error);
                 appDiv.innerHTML = `<div class="error-message"><h1>Error loading page</h1><p>${error.message}</p></div>`;
