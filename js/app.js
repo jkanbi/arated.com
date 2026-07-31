@@ -56,7 +56,9 @@ Sunday: Closed
 
 ### Send Us a Message
 
+<div class="hs-form-theme auto-dark">
 <div class="hs-form-frame" data-region="eu1" data-form-id="77c41a08-1554-4290-ad15-0c4bf1698784" data-portal-id="148934146"></div>
+</div>
 `,
     
     'quicklinks': `# Quicklinks
@@ -201,6 +203,12 @@ function loadHubSpotForm() {
     if (existing) {
         existing.remove();
     }
+
+    // Clear previous iframe so the embed re-initializes cleanly on SPA navigations
+    document.querySelectorAll('.hs-form-frame').forEach((frame) => {
+        frame.innerHTML = '';
+        frame.removeAttribute('style');
+    });
 
     const script = document.createElement('script');
     script.src = HUBSPOT_FORM_SCRIPT;

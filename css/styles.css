@@ -1507,3 +1507,226 @@ form[role="search"] button[type="submit"] {
     box-sizing: border-box;
   }
 }
+
+/* ---------------------------
+   HubSpot form theme
+--------------------------- */
+.hs-form-theme {
+  --hsf-bg: #ffffff;
+  --hsf-surface: #ffffff;
+  --hsf-text: #111827;
+  --hsf-muted: #6b7280;
+  --hsf-border: #d1d5db;
+  --hsf-placeholder: #9ca3af;
+  --hsf-button-bg: #111827;
+  --hsf-button-text: #ffffff;
+  --hsf-button-border: #111827;
+  --hsf-focus: #2563eb;
+  --hsf-error: #dc2626;
+  --hsf-radius: 12px;
+  --hsf-input-radius: 10px;
+  --hsf-shadow: 0 1px 2px rgba(0,0,0,.06);
+
+  /* Map theme tokens to HubSpot embed CSS variables */
+  --hsf-global__color: var(--hsf-text);
+  --hsf-heading__color: var(--hsf-text);
+  --hsf-richtext__color: var(--hsf-text);
+  --hsf-field-label__color: var(--hsf-text);
+  --hsf-field-description__color: var(--hsf-muted);
+  --hsf-field-footer__color: var(--hsf-muted);
+  --hsf-field-checkbox__color: var(--hsf-text);
+  --hsf-field-radio__color: var(--hsf-text);
+  --hsf-field-input__color: var(--hsf-text);
+  --hsf-field-input__background-color: var(--hsf-surface);
+  --hsf-field-input__border-color: var(--hsf-border);
+  --hsf-field-input__placeholder-color: var(--hsf-placeholder);
+  --hsf-field-textarea__color: var(--hsf-text);
+  --hsf-field-textarea__background-color: var(--hsf-surface);
+  --hsf-field-textarea__border-color: var(--hsf-border);
+  --hsf-field-textarea__placeholder-color: var(--hsf-placeholder);
+  --hsf-button__color: var(--hsf-button-text);
+  --hsf-button__background-color: var(--hsf-button-bg);
+  --hsf-background__background-color: var(--hsf-bg);
+  --hsf-global-error__color: var(--hsf-error);
+}
+
+/* Dark mode via class on your site */
+.dark .hs-form-theme {
+  --hsf-bg: #111827;
+  --hsf-surface: #1f2937;
+  --hsf-text: #f9fafb;
+  --hsf-muted: #cbd5e1;
+  --hsf-border: #374151;
+  --hsf-placeholder: #94a3b8;
+  --hsf-button-bg: #f9fafb;
+  --hsf-button-text: #111827;
+  --hsf-button-border: #f9fafb;
+  --hsf-focus: #60a5fa;
+  --hsf-error: #f87171;
+  --hsf-shadow: 0 1px 3px rgba(0,0,0,.35);
+}
+
+/* Auto-dark for system theme */
+@media (prefers-color-scheme: dark) {
+  .hs-form-theme.auto-dark {
+    --hsf-bg: #111827;
+    --hsf-surface: #1f2937;
+    --hsf-text: #f9fafb;
+    --hsf-muted: #cbd5e1;
+    --hsf-border: #374151;
+    --hsf-placeholder: #94a3b8;
+    --hsf-button-bg: #f9fafb;
+    --hsf-button-text: #111827;
+    --hsf-button-border: #f9fafb;
+    --hsf-focus: #60a5fa;
+    --hsf-error: #f87171;
+    --hsf-shadow: 0 1px 3px rgba(0,0,0,.35);
+  }
+
+  /* HubSpot embeds in a cross-origin iframe; invert so dark labels become light */
+  .hs-form-theme.auto-dark .hs-form-frame {
+    filter: invert(1) hue-rotate(180deg);
+  }
+}
+
+/* Form shell */
+.hs-form-theme .hs-form,
+.hs-form-theme form {
+  color: var(--hsf-text);
+  background: var(--hsf-bg);
+  border-radius: var(--hsf-radius);
+}
+
+/* Headings / helper text */
+.hs-form-theme h1,
+.hs-form-theme h2,
+.hs-form-theme h3,
+.hs-form-theme h4,
+.hs-form-theme .hs-richtext,
+.hs-form-theme .hs-form-field > label,
+.hs-form-theme label {
+  color: var(--hsf-text);
+}
+
+.hs-form-theme .hs-richtext p,
+.hs-form-theme .hs-form-field .help-text,
+.hs-form-theme .hs-form-field .hs-field-desc,
+.hs-form-theme .submitted-message {
+  color: var(--hsf-muted);
+}
+
+/* Inputs */
+.hs-form-theme input[type="text"],
+.hs-form-theme input[type="email"],
+.hs-form-theme input[type="tel"],
+.hs-form-theme input[type="number"],
+.hs-form-theme input[type="password"],
+.hs-form-theme input[type="date"],
+.hs-form-theme textarea,
+.hs-form-theme select {
+  width: 100%;
+  background: var(--hsf-surface);
+  color: var(--hsf-text);
+  border: 1px solid var(--hsf-border);
+  border-radius: var(--hsf-input-radius);
+  padding: 12px 14px;
+  box-shadow: var(--hsf-shadow);
+  transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+
+.hs-form-theme input::placeholder,
+.hs-form-theme textarea::placeholder {
+  color: var(--hsf-placeholder);
+  opacity: 1;
+}
+
+.hs-form-theme input:focus,
+.hs-form-theme textarea:focus,
+.hs-form-theme select:focus {
+  outline: none;
+  border-color: var(--hsf-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--hsf-focus) 20%, transparent);
+}
+
+.hs-form-theme textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Checkbox / radio */
+.hs-form-theme input[type="checkbox"],
+.hs-form-theme input[type="radio"] {
+  accent-color: var(--hsf-focus);
+}
+
+/* Validation / errors */
+.hs-form-theme .hs-error-msg,
+.hs-form-theme .hs_error_rollup,
+.hs-form-theme .error,
+.hs-form-theme .hs-form-field .invalid,
+.hs-form-theme .hs-main-font-element .hs-error-msg {
+  color: var(--hsf-error);
+}
+
+/* Buttons */
+.hs-form-theme .hs-button,
+.hs-form-theme input[type="submit"],
+.hs-form-theme button {
+  background: var(--hsf-button-bg);
+  color: var(--hsf-button-text);
+  border: 1px solid var(--hsf-button-border);
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  box-shadow: var(--hsf-shadow);
+  transition: transform .05s ease, opacity .2s ease, background-color .2s ease;
+}
+
+.hs-form-theme .hs-button:hover,
+.hs-form-theme input[type="submit"]:hover,
+.hs-form-theme button:hover {
+  opacity: 0.92;
+}
+
+.hs-form-theme .hs-button:active,
+.hs-form-theme input[type="submit"]:active,
+.hs-form-theme button:active {
+  transform: translateY(1px);
+}
+
+/* Multi-step progress / nav */
+.hs-form-theme .progress-bar,
+.hs-form-theme .hs-progress-bar,
+.hs-form-theme [role="progressbar"] {
+  color: var(--hsf-text);
+}
+
+.hs-form-theme .hs-step-indicator,
+.hs-form-theme .step-indicator {
+  color: var(--hsf-muted);
+}
+
+.hs-form-theme .actions,
+.hs-form-theme .hs-submit,
+.hs-form-theme .navigation {
+  margin-top: 16px;
+}
+
+/* Phone / country dropdown */
+.hs-form-theme .iti,
+.hs-form-theme .iti__country-list,
+.hs-form-theme .hs-phone {
+  color: var(--hsf-text);
+}
+
+.hs-form-theme .iti__country-list {
+  background: var(--hsf-surface);
+  border: 1px solid var(--hsf-border);
+}
+
+/* Links inside form */
+.hs-form-theme a {
+  color: var(--hsf-focus);
+}
