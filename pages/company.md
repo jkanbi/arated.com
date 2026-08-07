@@ -1,6 +1,6 @@
 # About ARated
 
-ARated connects homeowners with trusted professionals focused on quality. Some of these services are provided in-house. 
+ARated connects homeowners with trusted professionals focused on quality and innovation with a mix of in-house expertise and those of partners. 
 
 Founded by Jayesh Kanbi, the business is built on experience within the heating and home energy sector, including renewable technologies, energy efficiency improvements, and air source heat pumps.
 
