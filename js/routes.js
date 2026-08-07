@@ -4,7 +4,7 @@ const routes = {
     '/epc': { slug: 'epc', source: 'wordpress' },
     '/investments': { slug: 'investments', source: 'markdown' },
     '/about-us': { slug: 'about-us', source: 'markdown' },
-    '/company': { slug: 'company', source: 'wordpress' },
+    '/company': { slug: 'company', source: 'markdown' },
     '/carbon-emissions': { slug: 'carbon-emissions', source: 'wordpress' },
     '/mission': { slug: 'mission', source: 'wordpress' },
     '/terms-and-conditions': { slug: 'terms-and-conditions', source: 'wordpress' },
