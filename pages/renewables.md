@@ -8,6 +8,10 @@ We help homeowners navigate the world of renewable energy solutions. Our expert 
 
 We provide guidance on air source heat pumps, which extract heat from outside air to provide efficient heating and hot water for your home. We can help you understand if this technology is right for your property and connect you with certified installers.
 
+### Air Conditioning
+
+We provide guidance on air conditioning systems for efficient home cooling and year-round comfort. We can help you choose the right system for your property, understand running costs and energy performance, and connect you with trusted installers.
+
 ### Solar PV
 
 We offer expert advice on solar photovoltaic systems that convert sunlight into electricity. Our team helps you assess your home's suitability, understand the financial benefits, and plan your solar installation.
