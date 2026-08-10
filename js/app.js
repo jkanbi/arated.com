@@ -191,8 +191,82 @@ async function loadHtmlContent(slug) {
     }
 }
 
-// HubSpot embed scripts do not run when injected via innerHTML; load them explicitly
+// HubSpot embed scripts do not run when injected via innerHTML; load them explicitly.
+// HubSpot stacks multi-column rows only when the iframe viewport is ≤430px, so on
+// wider mobile screens we scale a 420px layout width up to the container width.
 const HUBSPOT_FORM_SCRIPT = 'https://js-eu1.hsforms.net/forms/embed/148934146.js';
+const HUBSPOT_STACK_LAYOUT_WIDTH = 420;
+let hubspotFormResizeBound = false;
+
+function fitHubSpotFormMobileLayout() {
+    const isMobileViewport = window.matchMedia('(max-width: 768px)').matches;
+
+    document.querySelectorAll('.hs-form-frame').forEach((frame) => {
+        const iframe = frame.querySelector('iframe');
+        if (!iframe) {
+            return;
+        }
+
+        const containerWidth = frame.clientWidth || frame.getBoundingClientRect().width;
+        // HubSpot only stacks columns at ≤430px iframe width; on wider mobile
+        // viewports, render at 420px and scale up so fields stay full-width stacked.
+        if (!isMobileViewport || containerWidth <= HUBSPOT_STACK_LAYOUT_WIDTH) {
+            iframe.style.width = '100%';
+            iframe.style.transform = '';
+            iframe.style.transformOrigin = '';
+            if (frame.dataset.hsScaledHeight === 'true' && frame.dataset.hsBaseHeight) {
+                frame.dataset.hsIgnoreHeight = 'true';
+                frame.style.height = frame.dataset.hsBaseHeight;
+                delete frame.dataset.hsScaledHeight;
+            }
+            return;
+        }
+
+        const scale = containerWidth / HUBSPOT_STACK_LAYOUT_WIDTH;
+        iframe.style.width = `${HUBSPOT_STACK_LAYOUT_WIDTH}px`;
+        iframe.style.transformOrigin = 'top left';
+        iframe.style.transform = `scale(${scale})`;
+
+        const baseHeight = parseInt(frame.dataset.hsBaseHeight || frame.style.height, 10);
+        if (!Number.isNaN(baseHeight) && baseHeight > 0) {
+            frame.dataset.hsBaseHeight = `${baseHeight}px`;
+            frame.dataset.hsScaledHeight = 'true';
+            frame.dataset.hsIgnoreHeight = 'true';
+            frame.style.height = `${Math.ceil(baseHeight * scale)}px`;
+        }
+    });
+}
+
+function observeHubSpotFormFrames() {
+    document.querySelectorAll('.hs-form-frame').forEach((frame) => {
+        if (frame.dataset.hsMobileObserved === 'true') {
+            return;
+        }
+        frame.dataset.hsMobileObserved = 'true';
+
+        const observer = new MutationObserver(() => {
+            if (frame.dataset.hsIgnoreHeight === 'true') {
+                delete frame.dataset.hsIgnoreHeight;
+                return;
+            }
+            if (frame.style.height) {
+                frame.dataset.hsBaseHeight = frame.style.height;
+            }
+            fitHubSpotFormMobileLayout();
+        });
+        observer.observe(frame, { attributes: true, attributeFilter: ['style'], childList: true, subtree: true });
+    });
+
+    if (!hubspotFormResizeBound) {
+        hubspotFormResizeBound = true;
+        window.addEventListener('resize', fitHubSpotFormMobileLayout);
+    }
+
+    // HubSpot sets iframe height asynchronously after render
+    setTimeout(fitHubSpotFormMobileLayout, 300);
+    setTimeout(fitHubSpotFormMobileLayout, 1000);
+    setTimeout(fitHubSpotFormMobileLayout, 2500);
+}
 
 function loadHubSpotForm() {
     if (!document.querySelector('.hs-form-frame')) {
@@ -208,12 +282,17 @@ function loadHubSpotForm() {
     document.querySelectorAll('.hs-form-frame').forEach((frame) => {
         frame.innerHTML = '';
         frame.removeAttribute('style');
+        delete frame.dataset.hsMobileObserved;
+        delete frame.dataset.hsBaseHeight;
+        delete frame.dataset.hsScaledHeight;
     });
 
     const script = document.createElement('script');
     script.src = HUBSPOT_FORM_SCRIPT;
     script.defer = true;
+    script.addEventListener('load', observeHubSpotFormFrames);
     document.body.appendChild(script);
+    observeHubSpotFormFrames();
 }
 
 // Enhanced render function with better error handling and loading states

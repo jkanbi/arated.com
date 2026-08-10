@@ -1730,3 +1730,48 @@ form[role="search"] button[type="submit"] {
 .hs-form-theme a {
   color: var(--hsf-focus);
 }
+
+/* Full-width HubSpot fields on mobile */
+@media (max-width: 768px) {
+  .hs-form-theme,
+  .hs-form-theme .hs-form-frame {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .hs-form-theme .hs-form-frame iframe {
+    max-width: none;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    border: 0;
+  }
+
+  .hs-form-theme .hs-form,
+  .hs-form-theme form,
+  .hs-form-theme fieldset,
+  .hs-form-theme .hs-form-field,
+  .hs-form-theme .field,
+  .hs-form-theme .input,
+  .hs-form-theme input[type="text"],
+  .hs-form-theme input[type="email"],
+  .hs-form-theme input[type="tel"],
+  .hs-form-theme input[type="number"],
+  .hs-form-theme input[type="password"],
+  .hs-form-theme input[type="date"],
+  .hs-form-theme textarea,
+  .hs-form-theme select {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    float: none !important;
+  }
+
+  .hs-form-theme .form-columns-1,
+  .hs-form-theme .form-columns-2,
+  .hs-form-theme .form-columns-3 {
+    display: block !important;
+    width: 100% !important;
+  }
+}
