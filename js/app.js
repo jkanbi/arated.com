@@ -446,7 +446,7 @@ async function render() {
                 
                 document.title = route.slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') + ' - ARated.com';
 
-                if (route.slug === 'contact-us' || route.slug === 'renewables') {
+                if (route.slug === 'contact-us' || route.slug === 'renewables' || route.slug === 'investments') {
                     loadHubSpotForm();
                 }
             } catch (error) {
