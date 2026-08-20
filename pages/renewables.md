@@ -1,20 +1,20 @@
 # Renewables
 
-We help homeowners navigate the world of renewable energy solutions. Our expert guidance covers the latest technologies to reduce your carbon footprint, lower energy bills, and increase property value.
+We help homeowners and small businesses navigate the world of renewable energy solutions. Our expert guidance covers the latest technologies to reduce your carbon footprint, lower energy bills, and increase property value.
 
 ## Services We Cover
 
 ### Air Source Heat Pumps
 
-We provide guidance on air source heat pumps, which extract heat from outside air to provide efficient heating and hot water for your home. We can help you understand if this technology is right for your property and connect you with certified installers.
+We provide guidance on air source heat pumps, which extract heat from outside air to provide efficient heating and hot water for your property. We can help you understand if this technology is right for your home or business and connect you with certified installers.
 
 ### Air Conditioning
 
-We provide guidance on air conditioning systems for efficient home cooling and year-round comfort. We can help you choose the right system for your property, understand running costs and energy performance, and connect you with trusted installers.
+We provide guidance on air conditioning systems for efficient cooling and year-round comfort. We can help you choose the right system for your property, understand running costs and energy performance, and connect you with trusted installers.
 
 ### Solar PV
 
-We offer expert advice on solar photovoltaic systems that convert sunlight into electricity. Our team helps you assess your home's suitability, understand the financial benefits, and plan your solar installation.
+We offer expert advice on solar photovoltaic systems that convert sunlight into electricity. Our team helps you assess your property's suitability, understand the financial benefits, and plan your solar installation.
 
 ### Battery Storage
 
@@ -22,11 +22,11 @@ We guide you through battery storage solutions that store excess solar energy fo
 
 ### EV Chargers
 
-We provide information and support for home electric vehicle charging solutions. We help you select the right charger for your needs, understand installation requirements, and integrate charging with your renewable energy system.
+We provide information and support for electric vehicle charging solutions. We help you select the right charger for your needs, understand installation requirements, and integrate charging with your renewable energy system.
 
 ## How We Can Help
 
-Our team assists with assessing your home's suitability for renewable technologies, calculating potential savings and payback periods, navigating grants and incentives, connecting you with certified installers, and planning integrated renewable energy systems.
+Our team assists with assessing your property's suitability for renewable technologies, calculating potential savings and payback periods, navigating grants and incentives, connecting you with certified installers, and planning integrated renewable energy systems.
 
 ## Renewables Enquiry Form
 
