@@ -65,7 +65,6 @@ Sunday: Closed
 
 - [Club](#/club)
 - [Tesla](#/tesla)
-- [Finance](#/finance)
 - [MyBoiler.com](https://myboiler.com/)`,
     
     'epc-checklist': `# EPC Checklist

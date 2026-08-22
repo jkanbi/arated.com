@@ -13,7 +13,6 @@ const routes = {
     '/third-party-vendors': { slug: 'third-party-vendors', source: 'markdown' },
     '/club': { slug: 'club', source: 'wordpress' },
     '/tesla': { slug: 'tesla', source: 'wordpress' },
-    '/finance': { slug: 'finance', source: 'wordpress' },
     '/calculators': { slug: 'calculators', source: 'wordpress' },
     '/misc': { slug: 'misc', source: 'wordpress' },
     '/test-page': { slug: 'test-page', source: 'markdown' },
