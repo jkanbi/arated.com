@@ -10,17 +10,24 @@ Our aim is to help homeowners make informed decisions and find reliable professi
 
 ## Our Values
 
-- Integrity
-- Honesty
-- Respect
-- Accountability
-- Teamwork
-- Adaptability
+<ul class="pill-list">
+  <li>Integrity</li>
+  <li>Honesty</li>
+  <li>Respect</li>
+  <li>Accountability</li>
+  <li>Teamwork</li>
+  <li>Adaptability</li>
+</ul>
 
-<p><img loading="lazy" decoding="async" class="aligncenter size-full" src="https://hub.myboiler.com/wp-content/uploads/2026/05/20181129_110704-1.jpg" alt="Jayesh Kanbi" width="298" height="376" /></p>
+## Founder
 
-<p style="text-align: center; font-size: large;">Jayesh Kanbi<br />
-Founder</p>
+<figure class="founder-profile">
+  <img loading="lazy" decoding="async" src="https://hub.myboiler.com/wp-content/uploads/2026/05/20181129_110704-1.jpg" alt="Jayesh Kanbi" width="298" height="376" />
+  <figcaption>
+    <strong>Jayesh Kanbi</strong>
+    <span>Founder</span>
+  </figcaption>
+</figure>
 
 ## Contact Us
 
