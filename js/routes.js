@@ -1,7 +1,7 @@
 const routes = {
     '/': { slug: 'home', source: 'wordpress' },
     '/homes': { slug: 'homes', source: 'wordpress' },
-    '/epc': { slug: 'epc', source: 'wordpress' },
+    '/epc': { slug: 'epc', source: 'markdown' },
     '/investments': { slug: 'investments', source: 'markdown' },
     '/about-us': { slug: 'about-us', source: 'markdown' },
     '/company': { slug: 'company', source: 'markdown' },
