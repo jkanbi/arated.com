@@ -1167,6 +1167,18 @@
     height: auto;
 }
 
+.page-content .founder-profile a {
+    display: inline-block;
+}
+
+.page-content .founder-profile figcaption a {
+    color: var(--text-color);
+}
+
+.page-content .founder-profile figcaption a:hover {
+    color: var(--link-color);
+}
+
 .page-content .founder-profile figcaption {
     display: flex;
     flex-direction: column;
@@ -1179,9 +1191,25 @@
     font-weight: 600;
 }
 
-.page-content .founder-profile figcaption span {
+.page-content .btn {
+    display: inline-block;
+    align-self: center;
+    width: auto;
+    margin-top: 0.85rem;
+    padding: 0.55rem 1.15rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--button-bg);
+    color: var(--button-text);
     font-size: 0.95rem;
-    opacity: 0.75;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.page-content .btn:hover {
+    border-color: var(--link-color);
+    color: var(--button-text);
 }
 
 .page-content strong {
