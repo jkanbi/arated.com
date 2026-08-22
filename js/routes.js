@@ -12,7 +12,6 @@ const routes = {
     '/affilate-activity-disclosure': { slug: 'affilate-activity-disclosure', source: 'markdown' },
     '/third-party-vendors': { slug: 'third-party-vendors', source: 'markdown' },
     '/club': { slug: 'club', source: 'wordpress' },
-    '/energy': { slug: 'energy', source: 'markdown' },
     '/tesla': { slug: 'tesla', source: 'wordpress' },
     '/finance': { slug: 'finance', source: 'wordpress' },
     '/calculators': { slug: 'calculators', source: 'wordpress' },

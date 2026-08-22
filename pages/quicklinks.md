@@ -1,7 +1,6 @@
 # Quicklinks
 
 - [Club](#/club)
-- [Energy](#/energy)
 - [Renewables](#/renewables)
 - [Investments](#/investments)
 - [Tesla](#/tesla)
