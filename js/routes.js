@@ -14,6 +14,7 @@ const routes = {
     '/club': { slug: 'club', source: 'wordpress' },
     '/tesla': { slug: 'tesla', source: 'wordpress' },
     '/calculators': { slug: 'calculators', source: 'wordpress' },
+    '/renewable-energy-payback': { slug: 'renewable-energy-payback', source: 'html' },
     '/misc': { slug: 'misc', source: 'wordpress' },
     '/test-page': { slug: 'test-page', source: 'markdown' },
     '/renewables': { slug: 'renewables', source: 'markdown' },

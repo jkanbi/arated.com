@@ -1,0 +1,189 @@
+<div class="payback-calculator" id="payback-calculator">
+    <h1>Renewable Energy Payback</h1>
+    <p>Estimate how long a renewable upgrade takes to pay for itself. Enter Solar PV, heat pump and battery, then open Overall for the combined payback. Figures are UK planning estimates, not a quote.</p>
+
+    <fieldset class="payback-tech">
+        <legend>Technology</legend>
+        <div class="payback-tech-options" role="radiogroup" aria-label="Technology">
+            <label>
+                <input type="radio" name="payback-tech" value="solar" checked>
+                Solar PV
+            </label>
+            <label>
+                <input type="radio" name="payback-tech" value="battery">
+                Battery
+            </label>
+            <label>
+                <input type="radio" name="payback-tech" value="ashp">
+                Heat pump
+            </label>
+            <label>
+                <input type="radio" name="payback-tech" value="custom">
+                Custom
+            </label>
+            <label>
+                <input type="radio" name="payback-tech" value="overall">
+                Overall
+            </label>
+        </div>
+    </fieldset>
+
+    <div class="payback-layout">
+        <form class="payback-form" id="payback-form" novalidate>
+            <div class="payback-fields">
+                <label>
+                    Installed cost (£)
+                    <input type="number" name="cost" min="0" step="50" required>
+                </label>
+                <label>
+                    Grant or subsidy (£)
+                    <input type="number" name="grant" min="0" step="50">
+                </label>
+                <label>
+                    Extra annual maintenance (£)
+                    <input type="number" name="maintenance" step="10">
+                </label>
+                <label>
+                    Energy price inflation (% / year)
+                    <input type="number" name="inflation" min="0" max="20" step="0.1">
+                </label>
+            </div>
+
+            <div class="payback-fields payback-group" data-tech="solar">
+                <label>
+                    System size (kWp)
+                    <input type="number" name="kWp" min="0" step="0.1">
+                </label>
+                <label>
+                    Annual yield (kWh)
+                    <input type="number" name="annualYield" min="0" step="50">
+                    <small data-annual-yield-max></small>
+                </label>
+                <label>
+                    Direct self-consumption without battery (%)
+                    <input type="number" name="selfUse" min="0" max="100" step="1">
+                </label>
+                <label>
+                    Electricity rate (p / kWh)
+                    <input type="number" name="elecRate" min="0" step="0.1">
+                </label>
+                <label>
+                    Export rate (p / kWh)
+                    <input type="number" name="exportRate" min="0" step="0.1">
+                </label>
+            </div>
+
+            <div class="payback-fields payback-group" data-tech="ashp" hidden>
+                <label>
+                    Current heating fuel
+                    <select name="currentFuel">
+                        <option value="gas">Mains gas</option>
+                        <option value="oil">Oil</option>
+                        <option value="lpg">LPG</option>
+                        <option value="electric">Electric heating</option>
+                    </select>
+                </label>
+                <label>
+                    Annual heat demand (kWh)
+                    <input type="number" name="heatDemand" min="0" step="100">
+                </label>
+                <label>
+                    Heat pump SCOP
+                    <input type="number" name="scop" min="1" max="6" step="0.1">
+                </label>
+                <label>
+                    Existing boiler efficiency (%)
+                    <input type="number" name="boilerEff" min="50" max="100" step="1">
+                </label>
+                <label>
+                    Current fuel rate (p / kWh)
+                    <input type="number" name="gasRate" min="0" step="0.01">
+                </label>
+                <label>
+                    Electricity rate (p / kWh)
+                    <input type="number" name="hpElecRate" min="0" step="0.1">
+                </label>
+            </div>
+
+            <div class="payback-fields payback-group" data-tech="battery" hidden>
+                <label>
+                    Solar stored from leftover PV (kWh / year)
+                    <input type="number" name="solarStoredKwh" min="0" step="50">
+                    <small data-solar-stored-max></small>
+                </label>
+                <label>
+                    Round-trip efficiency (%)
+                    <input type="number" name="efficiency" min="50" max="100" step="1">
+                </label>
+                <label>
+                    Peak / import rate (p / kWh)
+                    <input type="number" name="batteryPeakRate" min="0" step="0.1">
+                </label>
+                <label>
+                    Export rate (p / kWh)
+                    <input type="number" name="batteryExportRate" min="0" step="0.1">
+                </label>
+                <label>
+                    Off-peak rate (p / kWh)
+                    <input type="number" name="offPeakRate" min="0" step="0.1">
+                </label>
+                <label>
+                    Grid arbitrage charged (kWh / year)
+                    <input type="number" name="arbitrageKwh" min="0" step="50">
+                </label>
+                <p class="payback-output" id="battery-flow"></p>
+            </div>
+
+            <div class="payback-fields payback-group" data-tech="custom" hidden>
+                <label>
+                    Annual energy saving (£)
+                    <input type="number" name="annualSaving" min="0" step="10">
+                </label>
+            </div>
+        </form>
+
+        <div class="payback-summary" id="payback-summary" hidden>
+            <h2>By technology</h2>
+            <p>Uncheck a technology to leave it out of the overall total.</p>
+            <div class="payback-summary-rows" id="payback-summary-rows"></div>
+        </div>
+
+        <aside class="payback-results" id="payback-results" aria-live="polite">
+            <h2 data-result="heading">Results</h2>
+            <dl>
+                <div>
+                    <dt>Net investment</dt>
+                    <dd data-result="netCost">—</dd>
+                </div>
+                <div>
+                    <dt>Annual net saving</dt>
+                    <dd data-result="annualNet">—</dd>
+                </div>
+                <div>
+                    <dt>Simple payback</dt>
+                    <dd data-result="simplePayback">—</dd>
+                </div>
+                <div>
+                    <dt>Inflation-adjusted payback</dt>
+                    <dd data-result="inflatedPayback">—</dd>
+                </div>
+                <div>
+                    <dt>10-year net position</dt>
+                    <dd data-result="tenYear">—</dd>
+                </div>
+                <div>
+                    <dt>20-year net position</dt>
+                    <dd data-result="twentyYear">—</dd>
+                </div>
+                <div>
+                    <dt>Estimated CO₂ saved / year</dt>
+                    <dd data-result="carbon">—</dd>
+                </div>
+            </dl>
+            <p class="payback-note" data-result="note"></p>
+        </aside>
+    </div>
+
+    <p class="payback-disclaimer">Assumes typical UK tariffs, grants and yields. Solar self-consumption is direct use without a battery. Battery solar-shift only uses leftover PV that would otherwise be exported, so it is not counted twice. Heat pump figures use the Boiler Upgrade Scheme by default. This is not financial advice.</p>
+    <p><a class="btn" href="#/renewables">Get a tailored renewables assessment</a></p>
+</div>

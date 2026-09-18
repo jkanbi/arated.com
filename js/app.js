@@ -64,7 +64,12 @@ Sunday: Closed
     'quicklinks': `# Quicklinks
 
 - [Club](#/club)
+- [Renewables](#/renewables)
+- [Investments](#/investments)
 - [Tesla](#/tesla)
+- [Calculators](#/calculators)
+- [Renewable Energy Payback](#/renewable-energy-payback)
+- [EPC](#/epc)
 - [MyBoiler.com](https://myboiler.com/)`,
     
     'epc-checklist': `# EPC Checklist
@@ -466,6 +471,9 @@ async function render() {
                 
                 if (route.slug === 'renewables-enquiry') {
                     loadHubSpotForm();
+                }
+                if (route.slug === 'renewable-energy-payback') {
+                    initPaybackCalculator();
                 }
             } catch (error) {
                 console.error('Error loading HTML:', error);
