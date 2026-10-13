@@ -42,4 +42,4 @@ Energy Performance Certificates are valuable tools that provide insights into th
 | 4-5 beds < 150 sqm | £210 |
 | More than 150 sqm | POA |
 
-[EPC Checklist](#/epc-checklist)
+[EPC Checklist](#/epc-checklist) · [Download checklist (Markdown)](/pages/epc-checklist.md)

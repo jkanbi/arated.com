@@ -1,5 +1,7 @@
 # Pre-assessment checklist
 
+[Download / view this checklist as Markdown (.md)](/pages/epc-checklist.md)
+
 - House build documents  
 - Certificates / documents / invoices for the double glazing  
 - Access to all rooms including the loft space  
